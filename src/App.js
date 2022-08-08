@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Main from './screens/Main';
+import Main from './screens/Main/Main';
+import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css'
 
 function App() {
