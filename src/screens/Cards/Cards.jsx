@@ -1,12 +1,17 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { Col, Row, Container } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
+import { Col, Row, Container } from 'react-bootstrap'
 
 function BasicExample() {
-    const arr = [0, 1, 2, 3]
+    const arr = [0, 1, 2]
     return (
         <Container>
-            <Row lg={12}>
+            <Col lg={12} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <h4> Join a Group </h4>
+            </Col>
+            <br />
+
+            <Row lg={8}>
                 {arr.map(() => {
                     return (
                         <Col key={Math.random()} lg={4} style={{ marginBottom: '50px' }}>
@@ -18,7 +23,7 @@ function BasicExample() {
                                         Some quick example text to build on the card title and make up the
                                         bulk of the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">Go somewhere</Button>
+                                    <p style={Styles.join}> JOIN </p>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -31,3 +36,9 @@ function BasicExample() {
 
 export default BasicExample;
 
+const Styles = ({
+    join: {
+        color: '#9151FF',
+        font: '16px poppins'
+    }
+})
