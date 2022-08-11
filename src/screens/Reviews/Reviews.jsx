@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Col, Row } from 'react-bootstrap'
 import Center from '../../components/Center'
 import { Content } from '../../styles/styles'
@@ -7,8 +7,21 @@ import StarRating from 'react-star-rating'
 
 
 export default function Reviews() {
+
+    const [ReviewNum, setReviewNum] = useState([{}, {}, {}, {}])
+    const [shadow, setShadow] = useState(['0px 0px 0px 0px white' , '' , '' , ''])
+
+
+    const toggleShadow = (index) => {
+        var newShadow = shadow[index].includes('white') ? '0px 0px 8px 1px lightgray' : '0px 0px 0px 0px white'
+        shadow[index] = newShadow
+        setShadow([...newShadow])
+    }
+
+
+
     return (
-        <Row lg={12} style={Content.rowCentrify}>
+        <Row lg={10} xs={7} style={Content.rowCentrify}>
 
             <Center>
                 <h4 style={{ color: '#9151FF' }} > See what our members have to say  </h4>
@@ -16,25 +29,27 @@ export default function Reviews() {
 
             <br />
 
-            <Col lg={6} style={Content.colCentrify} >
-                <div style={{ ...Styles.Card, ...Content.colCentrify }}>
-                    <Row>
-                        <p>
-                            I was looking for a supportive group that understood the journey of separation and ChapterUp helped me at my time of need.
-                        </p>
-                    </Row>
-                    <Row style={{ ...Content.rowSpaceBetween, width: '100%' }}>
-                        <Col>
-                            <Image roundedCircle src={'http://www.chapterup.com/wp-content/uploads/elementor/thumbs/Dani-pphqk7z65d9ssxru375wafy0ebnhfkj1qkzwchhh8g.jpeg'} />
-                        </Col>
-                        <Col>
-                        </Col>
-                    </Row>
+            {ReviewNum.map((review , index) => {
+                return (
+                    <Col lg={5} xs={8} style={{ ...Content.colCentrify }} >
+                        <div style={{ ...Styles.Card, ...Content.colCentrify, boxShadow: shadow[index] }} onMouseOver={() => { toggleShadow(index) }} onMouseLeave={() => { toggleShadow(index) }}>
 
-                </div>
-            </Col>
-            <Col lg={6}>
-            </Col>
+                            <p>  I was looking for a supportive group that understood the journey of separation and ChapterUp helped me at my time of need. </p>
+
+                            <Row style={{ ...Content.rowSpaceBetween, width: '100%' }}>
+                                <Col>
+                                    <Image roundedCircle src={'http://www.chapterup.com/wp-content/uploads/elementor/thumbs/Dani-pphqk7z65d9ssxru375wafy0ebnhfkj1qkzwchhh8g.jpeg'} />
+                                </Col>
+                                <Col>
+                                </Col>
+                            </Row>
+
+                        </div>
+                    </Col>
+                )
+            })}
+
+
         </Row>
     )
 }
@@ -44,7 +59,8 @@ const Styles = ({
     Card: {
         width: '600px',
         height: '200px',
-        border: 'dashed 1px #222',
-        backgroundColor: ''
+        padding: '10px',
+        marginRight: '10px',
+        marginBottom: '10px'
     }
 })

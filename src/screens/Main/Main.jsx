@@ -7,6 +7,8 @@ import Cards from '../Cards/Cards';
 import Program from '../Program/Program';
 import How from '../How/How';
 import Reviews from '../Reviews/Reviews';
+import Professionals from '../Professionals/Professionals';
+import Contact from '../Contact/Contact';
 
 export default function Main() {
     return (
@@ -18,6 +20,8 @@ export default function Main() {
             <Program />
             <How />
             <Reviews />
+            <Professionals />
+            <Contact />
         </Col>
 
     )
