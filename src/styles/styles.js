@@ -20,14 +20,20 @@ export const Content = ({
     colCenterLeft: {
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
     },
     rowCentrify: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
+    },
+    rowLeftStart: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
     },
     rowSpaceBetween: {
         display: 'flex',

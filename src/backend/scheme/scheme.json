@@ -1,0 +1,21 @@
+{
+    "user": {
+        "id": "abc123",
+        "displayName": "humzi",
+        "email": "princehamzi.mine@gmail.com",
+        "photoURL": "https://..",
+        "city": "islamabad",
+        "country": "pakistan"
+    },
+    "group": {
+        "groupId": "group123",
+        "groupName": "Fantastic group",
+        "ownerId": "abc123",
+        "ownerName": "humzi",
+        "cover": "https://..",
+        "timestamp": "22 jan 2016"
+    },
+    "conversations": {
+        "link" : "admin_abc123"
+    }
+}

@@ -9,7 +9,7 @@ const photos = ['http://www.chapterup.com/wp-content/uploads/elementor/thumbs/Re
 
 export default function Professionals() {
 
-    const [info, setInfo] = useState([{ photo: photos[0], name: 'Reinholds', para: 'Has been trained as a Life Coach that specialise in healing from separation and divorce' }, { photo: photos[1], name: 'Suha', para: 'Is a licenced therapist and can help you with solution focussed grief therapy, CBT therapy and healing fractured self' }, { photo: photos[2], name: 'Willow', para: 'Has a Masters in Psychology and is mental wellness coach that helps you build towards your next chapter' }])
+    const [info] = useState([{ photo: photos[0], name: 'Reinholds', para: 'Has been trained as a Life Coach that specialise in healing from separation and divorce' }, { photo: photos[1], name: 'Suha', para: 'Is a licenced therapist and can help you with solution focussed grief therapy, CBT therapy and healing fractured self' }, { photo: photos[2], name: 'Willow', para: 'Has a Masters in Psychology and is mental wellness coach that helps you build towards your next chapter' }])
 
     return (
         <Col lg={12} xs={12} style={Styles.theme}>
@@ -18,8 +18,6 @@ export default function Professionals() {
             </Center>
 
             <br />
-
-
 
             <Row lg={12} style={Content.rowCentrify}>
                 {info.map((pro) => {
@@ -35,6 +33,7 @@ export default function Professionals() {
                     )
                 })}
             </Row>
+            
         </Col>
     )
 }
