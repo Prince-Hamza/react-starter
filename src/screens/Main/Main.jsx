@@ -15,7 +15,7 @@ export default function Main() {
     return (
         <Col lg={12} md={12} xs={12}>
             <NavBar />
-            <Messenger />
+            {/* <Messenger /> */}
             <AppFace />
             <Explain />
             <Cards />

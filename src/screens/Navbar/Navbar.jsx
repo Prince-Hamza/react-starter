@@ -4,18 +4,19 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from 'react-bootstrap/Image'
 import { useNavigate } from 'react-router-dom';
+import './mobile.css'
 
 export default function NavBar() {
     const navigate = useNavigate()
     return (
-        <Navbar style={Styles.Navbar} collapseOnSelect expand="lg" lg={12} xs={12} >
+        <Navbar className='primaryNavbar'  collapseOnSelect expand="lg" lg={12} xs={12} >
             <Container>
                 <Image style={Styles.Logo} src={'https://digitalsynopsis.com/wp-content/uploads/2019/04/beautiful-gradient-logo-designs-1.jpg'} roundedCircle />
                 <Navbar.Brand style={Styles.Text}>Chapter Up</Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Toggle style={{ color: 'white', backgroundColor: 'white' }} variant='light' aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="me-auto">   </Nav>
-                    <Nav>
+                    <Nav className="me-auto mt-3" >   </Nav>
+                    <Nav style={Styles.mobileMenu}>
                         <Nav.Link style={Styles.Text} onClick={() => { navigate('/') }}> Home </Nav.Link>
                         <Nav.Link style={Styles.Text}> About us </Nav.Link>
                         <Nav.Link style={Styles.Text} onClick={() => { navigate('/professionals') }}> Meet our Professionals </Nav.Link>
@@ -23,6 +24,7 @@ export default function NavBar() {
                         <Nav.Link style={Styles.Text}> Sign Up </Nav.Link>
                         <Nav.Link style={Styles.Text} onClick={() => { navigate('/community') }}> Community</Nav.Link>
                         <Nav.Link style={Styles.Text} onClick={() => { navigate('/stripe') }}> Stripe</Nav.Link>
+                        <Nav.Link style={Styles.Text} onClick={() => { navigate('/subscription') }}> StripeSubscribe </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
@@ -33,7 +35,6 @@ export default function NavBar() {
 
 const Styles = ({
     Navbar: {
-        height: '120px',
         backgroundColor: '#081322',
         boxShadow: '0px 0px 5px 1px lightgray',
         color: 'white',
@@ -44,5 +45,9 @@ const Styles = ({
     Logo: {
         width: '90px',
         height: '85px',
+        marginRight:'15px'
+    },
+    mobileMenu: {
+        padding:'10px'
     }
 })

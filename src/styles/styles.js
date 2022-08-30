@@ -39,7 +39,13 @@ export const Content = ({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center',
+        alignItems: 'center'
+    },
+    rowSpaceAround: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center'
     }
 
 })

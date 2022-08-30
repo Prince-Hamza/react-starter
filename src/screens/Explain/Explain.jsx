@@ -19,30 +19,28 @@ export default function Explain() {
                     Created by founders with lived experiences to get you through life challenges like separation, divorce, toxic relationships and grief. Backed by medical journals that promote Group Support.
                 </p>
 
-                <h5>Built through Lived Experience and back by Medical Journals</h5>
+                <h5>Matched for Safety and Support</h5>
                 <p>
-                    Created by founders with lived experiences to get you through life challenges like separation, divorce, toxic relationships and grief. Backed by medical journals that promote Group Support.
+                    Matched with people going through similar life challenges. A safe and supportive online space to receive emotional support, learn coping skills and heal.
                 </p>
 
-                <h5>Built through Lived Experience and back by Medical Journals</h5>
+                <h5>Professionally Led</h5>
                 <p>
-                    Created by founders with lived experiences to get you through life challenges like separation, divorce, toxic relationships and grief. Backed by medical journals that promote Group Support.
+                    Feel comfortable with your first session before any obligations to join. Membership starts at $29 per month which is significantly cheaper than Therapy sessions.
                 </p>
 
                 <button style={Styles.Button}>
-                    BOOK  FREE DISCUSSION
+                    BOOK FREE DISCUSSION
                 </button>
             </Col>
         </Row>
     )
 }
 
-
-
 const Styles = ({
     background: {
         marginLeft: '0px',
-        marginBottom:'100px',
+        marginBottom: '100px',
         width: '100%',
         display: 'flex',
         justifyContent: 'space-evenly',
@@ -54,12 +52,12 @@ const Styles = ({
         height: '300px'
     },
     Button: {
-      border:'none',
-      outline:'none',
-      backgroundColor:'#9151FF',
-      color:'white',
-      width:'250px',
-      height:'40px',
-      borderRadius:'50px'
+        border: 'none',
+        outline: 'none',
+        backgroundColor: '#9151FF',
+        color: 'white',
+        width: '250px',
+        height: '40px',
+        borderRadius: '50px'
     }
 })

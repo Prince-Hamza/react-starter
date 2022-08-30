@@ -22,7 +22,7 @@ export default function Professionals() {
             <Row lg={12} style={Content.rowCentrify}>
                 {info.map((pro) => {
                     return (
-                        <Col lg={2} style={{ ...Content.colCentrify, textAlign: 'center' }}>
+                        <Col key={Math.random()} lg={2} style={{ ...Content.colCentrify, textAlign: 'center' }}>
                             <Image roundedCircle src={pro.photo} />
                             <br />
                             <h5 style={{ color: 'white' }}> {pro.name} </h5>

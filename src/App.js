@@ -12,6 +12,7 @@ import { setScheme } from './backend/scheme/scheme'
 import Timelines from './screens/Timelines/Timelines'
 import Create from './screens/Timelines/Create'
 import Community from './screens/Community/Community'
+import StripeSubscribe from './screens/StripeSubscribe/StripeSubscription'
 import './App.css'
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Main />} />
           <Route exact path="/stripe" element={<Stripes />} />
+          <Route exact path="/subscription" element={<StripeSubscribe />} />
           <Route exact path="/professionals" element={<MeetProfessionals />} />
           <Route exact path="/messenger" element={<Messenger />} />
           <Route exact path="/community" element={<Community />} />

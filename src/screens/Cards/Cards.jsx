@@ -4,7 +4,23 @@ import { Col, Row, Container } from 'react-bootstrap'
 import { Content } from '../../styles/styles'
 
 function BasicExample() {
-    const arr = [0, 1, 2]
+    const info = [
+        {
+            image: 'http://www.chapterup.com/wp-content/uploads/2022/06/Separation.jpg',
+            title: 'Divorce & Separation',
+            description: 'Separating from someone you’ve loved is never easy. This can be a painful part of life but connecting with those that have gone through the same experience can assist with moving on to the next chapter'
+        },
+        {
+            image: 'http://www.chapterup.com/wp-content/uploads/2022/06/Toxic.jpg',
+            title: 'Narcissistic Relationships',
+            description: 'Some days can be mentally exhausting and challenging. Speaking up can help shape your journey together. Learn tools to build resilience and look forward to better days ahead.'
+        },
+        {
+            image: 'http://www.chapterup.com/wp-content/uploads/elementor/thumbs/online-grief-support-groups-1-pkbfpp0azrgl2hrxtc0n1pbk97bsgatsv2o1dykgbk.jpg',
+            title: 'Grief',
+            description: 'Grief is a complicated emotion, it’s the body’s natural response to trauma and loss. A support group can help with the overwhelming array of emotions you might be feeling. Please know you’re not alone.'
+        }
+    ]
     return (
         <Container>
             <Col lg={12} xs={12} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -12,17 +28,16 @@ function BasicExample() {
             </Col>
             <br />
 
-            <Row style={Content.rowCentrify} lg={8}>
-                {arr.map(() => {
+            <Row style={Content.rowSpaceAround} lg={8}>
+                {info.map((item) => {
                     return (
                         <Col key={Math.random()} lg={4} style={{ marginBottom: '50px', ...Content.colCentrify }}>
                             <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/129325364/original/afaddcb9d7dfaaf5bff7ef04101935814665ac16/design-an-attractive-background-for-your-website.png" />
+                                <Card.Img variant="top" src={item.image} />
                                 <Card.Body>
-                                    <Card.Title>Card Title</Card.Title>
+                                    <Card.Title>{item.title}</Card.Title>
                                     <Card.Text>
-                                        Some quick example text to build on the card title and make up the
-                                        bulk of the card's content.
+                                        {item.description}
                                     </Card.Text>
                                     <p style={Styles.join}> JOIN </p>
                                 </Card.Body>

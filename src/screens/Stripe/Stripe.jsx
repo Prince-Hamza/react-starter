@@ -4,7 +4,6 @@ import { loadStripe } from '@stripe/stripe-js';
 
 export default function Stripes() {
 
-
     const stripeCheckout = async () => {
         const stripePromise = loadStripe("pk_live_cKzP5F3yEntaHFW92JGWtj9o00h1FWf5qd")
         const stripe = await stripePromise;
@@ -29,7 +28,6 @@ export default function Stripes() {
                 Checkout
             </button>
             <div id="error-message"></div>
-
         </div>
     )
 }

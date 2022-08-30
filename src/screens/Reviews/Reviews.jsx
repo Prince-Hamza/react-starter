@@ -9,8 +9,7 @@ import StarRating from 'react-star-rating'
 export default function Reviews() {
 
     const [ReviewNum, setReviewNum] = useState([{}, {}, {}, {}])
-    const [shadow, setShadow] = useState(['0px 0px 0px 0px white' , '' , '' , ''])
-
+    const [shadow, setShadow] = useState(['0px 0px 0px 0px white', '', '', ''])
 
     const toggleShadow = (index) => {
         var newShadow = shadow[index].includes('white') ? '0px 0px 8px 1px lightgray' : '0px 0px 0px 0px white'
@@ -18,10 +17,8 @@ export default function Reviews() {
         setShadow([...newShadow])
     }
 
-
-
     return (
-        <Row lg={10} xs={7} style={Content.rowCentrify}>
+        <Row lg={10} xs={7} key={Math.random()} style={Content.rowCentrify}>
 
             <Center>
                 <h4 style={{ color: '#9151FF' }} > See what our members have to say  </h4>
@@ -29,7 +26,7 @@ export default function Reviews() {
 
             <br />
 
-            {ReviewNum.map((review , index) => {
+            {ReviewNum.map((review, index) => {
                 return (
                     <Col lg={5} xs={8} style={{ ...Content.colCentrify }} >
                         <div style={{ ...Styles.Card, ...Content.colCentrify, boxShadow: shadow[index] }} onMouseOver={() => { toggleShadow(index) }} onMouseLeave={() => { toggleShadow(index) }}>
@@ -43,13 +40,10 @@ export default function Reviews() {
                                 <Col>
                                 </Col>
                             </Row>
-
                         </div>
                     </Col>
                 )
             })}
-
-
         </Row>
     )
 }
