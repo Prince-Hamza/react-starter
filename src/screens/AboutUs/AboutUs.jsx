@@ -27,7 +27,7 @@ export default function AboutUs() {
     return (
         <Col lg={12}>
             <NavBar />
-            <iframe style={{ zIndex: -1 }} id={'aboutus'} title="aboutus" width={window.screen.width} height={window.screen.height} src={"http://www.chapterup.com/about-us/"} allowFullScreen frameBorder="0"></iframe>
+            <iframe style={{ zIndex: -1 }} id={'aboutus'} title="aboutus" width={window.screen.width} height={window.screen.height} src={"https://www.chapterup.com/about-us/"} allowFullScreen frameBorder="0"></iframe>
             {/* <Footer Top={contentHeight} /> */}
         </Col>
     )

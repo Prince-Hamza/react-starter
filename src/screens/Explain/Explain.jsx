@@ -6,7 +6,7 @@ export default function Explain() {
     return (
         <Row lg={12} style={Styles.background}>
             <Col lg={5}>
-                <Image style={Styles.image} src={'http://www.chapterup.com/wp-content/uploads/2022/06/Online-therapy.jpg'} alt={''} />
+                <Image style={Styles.image} src={'https://www.chapterup.com/wp-content/uploads/2022/06/Online-therapy.jpg'} alt={''} />
 
             </Col>
 
