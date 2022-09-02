@@ -13,6 +13,9 @@ import Timelines from './screens/Timelines/Timelines'
 import Create from './screens/Timelines/Create'
 import Community from './screens/Community/Community'
 import StripeSubscribe from './screens/StripeSubscribe/StripeSubscription'
+import AboutUs from './screens/AboutUs/AboutUs'
+import GetSupport from './screens/GetSupport/GetSupport'
+import SignUp from './screens/SignUp/SignUp'
 import './App.css'
 
 function App() {
@@ -33,6 +36,9 @@ function App() {
           <Route exact path="/community" element={<Community />} />
           <Route exact path="/create" element={<Create />} />
           <Route exact path="/community/:id" element={<Timelines />} />
+          <Route exact path="/aboutus" element={<AboutUs />} />
+          <Route exact path="/getsupport" element={<GetSupport />} />
+          <Route exact path="/contact" element={<SignUp />} />
         </Routes>
       </BrowserRouter>
     </AppContext.Provider>

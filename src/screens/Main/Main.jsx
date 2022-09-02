@@ -9,6 +9,7 @@ import How from '../How/How'
 import Reviews from '../Reviews/Reviews'
 import Professionals from '../Professionals/Professionals'
 import Contact from '../Contact/Contact'
+import Footer from '../Footer/Footer'
 import Messenger from '../Messenger/Messenger'
 
 export default function Main() {
@@ -21,9 +22,10 @@ export default function Main() {
             <Cards />
             <Program />
             <How />
-            <Reviews />
+            {/* <Reviews /> */}
             <Professionals />
             <Contact />
+            <Footer />
         </Col>
     )
 }

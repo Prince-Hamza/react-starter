@@ -3,6 +3,7 @@ import { Col } from 'react-bootstrap'
 import NavBar from '../Navbar/Navbar'
 import PageFace from './PageFace'
 import Professionalx from './Professionalx'
+import Footer from '../Footer/Footer'
 
 export default function MeetProfessionals() {
     return (
@@ -10,6 +11,7 @@ export default function MeetProfessionals() {
             <NavBar />
             <PageFace />
             <Professionalx />
+            <Footer />
         </Col>
 
     )

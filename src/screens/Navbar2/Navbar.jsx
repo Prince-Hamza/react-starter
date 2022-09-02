@@ -6,16 +6,14 @@ import Image from 'react-bootstrap/Image'
 import { useNavigate } from 'react-router-dom'
 import logo from '../../images/logo.png'
 import './mobile.css'
-import { useState } from 'react'
 
 export default function NavBar() {
     const navigate = useNavigate()
-    const [navbarHeight, setNavbarHeight] = useState('120px')
     return (
-        <Navbar className='primaryNavbar' style={{ height: navbarHeight }} collapseOnSelect expand="lg" lg={12} xs={12} >
+        <Navbar className='primaryNavbar2' collapseOnSelect expand="lg" lg={12} xs={12} >
             <Container>
-                <Image style={Styles.Logo} src={logo} roundedCircle />
-                <Navbar.Toggle onClick={() => { setNavbarHeight(navbarHeight === '120px' ? '700px' : '120px') }} style={{ color: 'white', backgroundColor: 'white' }} variant='light' aria-controls="responsive-navbar-nav" />
+            <Image style={Styles.Logo} src={logo} roundedCircle />
+                <Navbar.Toggle style={{ color: 'white', backgroundColor: 'white' }} variant='light' aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto mt-3" >   </Nav>
                     <Nav style={Styles.mobileMenu}>
@@ -23,10 +21,10 @@ export default function NavBar() {
                         <Nav.Link style={Styles.Text} onClick={() => { navigate('/aboutus') }} > About us </Nav.Link>
                         <Nav.Link style={Styles.Text} onClick={() => { navigate('/getsupport') }} > Get Support </Nav.Link>
                         <Nav.Link style={Styles.Text} onClick={() => { navigate('/professionals') }}> Meet our Professionals </Nav.Link>
-                        <Nav.Link style={Styles.Text} onClick={() => { navigate('/contact') }}> Sign Up </Nav.Link>
+                        <Nav.Link style={Styles.Text}> Sign Up </Nav.Link>
                         <Nav.Link style={Styles.Text} onClick={() => { navigate('/community') }}> Community</Nav.Link>
-                        {/* <Nav.Link style={Styles.Text} onClick={() => { navigate('/stripe') }}> Stripe</Nav.Link>
-                        <Nav.Link style={Styles.Text} onClick={() => { navigate('/subscription') }}> StripeSubscribe </Nav.Link> */}
+                        {/* <Nav.Link style={Styles.Text} onClick={() => { navigate('/stripe') }}> Stripe</Nav.Link> */}
+                        {/* <Nav.Link style={Styles.Text} onClick={() => { navigate('/subscription') }}> StripeSubscribe </Nav.Link> */}
                     </Nav>
                 </Navbar.Collapse>
             </Container>

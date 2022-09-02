@@ -17,7 +17,7 @@ export default function AppFace() {
           ChapterUp provides you emotional support during tough times and get you ready for the next Chapter of your life. We connect you through vidoe with others going through similar life challenges and connect with the best mental wellness professionals.
         </p>
 
-          <br />
+        <br />
 
         <Row lg={12} xs={12} style={Content.rowCentrify} >
           <button style={Styles.Button}>
@@ -30,9 +30,12 @@ export default function AppFace() {
 
 
       <Col lg={4} xs={11} >
-        <iframe title="yt" width="100%" height="335px"
-          src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1">
-        </iframe>
+        <br />
+
+        <iframe width="100%" height="335px" src="https://www.youtube.com/embed/uzSoHuVkHSk" title="ChapterUp - Mental Wellbeing Virtual Support Groups" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        {/* <iframe title="yt" width="100%" height="335px"
+          src="https://www.youtube.com/watch?v=uzSoHuVkHSk&feature=youtu.be">
+        </iframe> */}
         <br />
         <p style={{ ...Styles.describe2 }}>
           ” I had major life changes that impacted my mental wellbeing. I was struggling to cope and needed the emotional support ChapterUp provided to get me through and plan my future. “

@@ -1,12 +1,11 @@
 .primaryNavbar {
-    height:120px;
     background-color: #081322;
     box-shadow: 0px 0px 5px 1px lightgray;
     color: white
 }
 
 @media (max-width:500px) {
-    .primaryNavbar {
+    /* .primaryNavbar {
         height:700px
-    }
+    } */
 }
