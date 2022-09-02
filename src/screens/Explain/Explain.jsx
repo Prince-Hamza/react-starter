@@ -1,13 +1,14 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
+import girl from '../../images/Online-therapy.jpg'
 
 export default function Explain() {
     return (
         <Row lg={12} style={Styles.background}>
-            <Col lg={5}>
-                <Image style={Styles.image} src={'https://www.chapterup.com/wp-content/uploads/2022/06/Online-therapy.jpg'} alt={''} />
 
+            <Col lg={5}>
+                <Image style={Styles.image} src={girl} alt={''} />
             </Col>
 
             <Col lg={5}>

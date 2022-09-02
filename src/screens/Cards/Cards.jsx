@@ -2,21 +2,24 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import { Col, Row, Container } from 'react-bootstrap'
 import { Content } from '../../styles/styles'
+import cardImage1 from '../../images/cards/ci1.jpg'
+import cardImage2 from '../../images/cards/ci2.jpg'
+import cardImage3 from '../../images/cards/ci3.jpg'
 
 function BasicExample() {
     const info = [
         {
-            image: 'http://www.chapterup.com/wp-content/uploads/2022/06/Separation.jpg',
+            image: cardImage1,
             title: 'Divorce & Separation',
             description: 'Separating from someone you’ve loved is never easy. This can be a painful part of life but connecting with those that have gone through the same experience can assist with moving on to the next chapter'
         },
         {
-            image: 'http://www.chapterup.com/wp-content/uploads/2022/06/Toxic.jpg',
+            image: cardImage2,
             title: 'Narcissistic Relationships',
             description: 'Some days can be mentally exhausting and challenging. Speaking up can help shape your journey together. Learn tools to build resilience and look forward to better days ahead.'
         },
         {
-            image: 'http://www.chapterup.com/wp-content/uploads/elementor/thumbs/online-grief-support-groups-1-pkbfpp0azrgl2hrxtc0n1pbk97bsgatsv2o1dykgbk.jpg',
+            image: cardImage3,
             title: 'Grief',
             description: 'Grief is a complicated emotion, it’s the body’s natural response to trauma and loss. A support group can help with the overwhelming array of emotions you might be feeling. Please know you’re not alone.'
         }
