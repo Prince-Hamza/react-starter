@@ -6,11 +6,14 @@ import Center from '../../components/Center'
 import { Content } from '../../styles/styles'
 import Button from '../../components/Button'
 import Footer from '../Footer/Footer'
-const photos = ['http://www.chapterup.com/wp-content/uploads/elementor/thumbs/Reinholds-pphqu481r7z0tmw8wp4owwvhcjem1n6p17acsnv3dc.jpg', 'http://www.chapterup.com/wp-content/uploads/elementor/thumbs/Suha-pphquujj2kz1upu0n0i8uq8dzbsw1636gtjy8es2j4.jpg', 'http://www.chapterup.com/wp-content/uploads/elementor/thumbs/Willow-pphqvbgmhlm7np5fw7tj3lyoo9hhvpycj5aove2zf4.jpg']
+import pro1 from '../../images/professionals/pro1.jpg'
+import pro2 from '../../images/professionals/pro2.jpg'
+import pro3 from '../../images/professionals/pro3.jpg'
+
+const photos = [pro1, pro2, pro3]
 
 export default function Professionals() {
 
-    
     const [info] = useState([{ photo: photos[0], name: 'Reinholds', para: 'Has been trained as a Life Coach that specialise in healing from separation and divorce' }, { photo: photos[1], name: 'Suha', para: 'Is a licenced therapist and can help you with solution focussed grief therapy, CBT therapy and healing fractured self' }, { photo: photos[2], name: 'Willow', para: 'Has a Masters in Psychology and is mental wellness coach that helps you build towards your next chapter' }])
 
     return (
@@ -42,12 +45,12 @@ export default function Professionals() {
 const Styles = ({
     theme: {
         backgroundColor: '#8D51FF',
-        marginBottom:'25px'
+        marginBottom: '25px'
     },
     Button: {
         backgroundColor: 'white',
         color: 'black',
         font: '16px poppins',
-        marginBottom:'15px'
+        marginBottom: '15px'
     }
 })

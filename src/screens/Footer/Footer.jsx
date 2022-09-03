@@ -2,6 +2,7 @@ import React from 'react'
 import { Row, Col, Image } from 'react-bootstrap'
 import { Content } from '../../styles/styles'
 import { useNavigate } from 'react-router-dom'
+import chapterUp from '../../images/chapterup.png'
 
 export default function Footer() {
     const navigate = useNavigate()
@@ -10,7 +11,7 @@ export default function Footer() {
             <Row lg={10} style={Content.rowCentrify} >
 
                 <Col lg={3} style={{ ...Content.colCentrify, marginBottom: '25px' }} >
-                    <Image style={{ width: '220px', height: '114px' }} src={'http://www.chapterup.com/wp-content/uploads/2021/10/cropped-ChapterUp-2.png'} />
+                    <Image style={{ width: '220px', height: '114px' }} src={chapterUp} />
                 </Col>
 
 

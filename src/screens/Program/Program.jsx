@@ -2,12 +2,12 @@ import React from 'react'
 import { Col, Row, Image } from 'react-bootstrap'
 import { Content } from '../../styles/styles'
 import Button from '../../components/Button'
-
+import program from '../../images/program.png'
 export default function Program() {
     return (
         <Row lg={12} style={Content.rowCentrify}>
             <Col lg={3} style={Content.colCenterLeft}>
-                <Image style={Styles.image} src={'http://www.chapterup.com/wp-content/uploads/2022/06/medium.png'} />
+                <Image style={Styles.image} src={program} />
             </Col>
             <Col lg={3} xs={10} style={{ ...Content.colCentrify }}>
                 <h5 style={{ color: '#9151FF' }} > 6 week program to Heal from challenging life events         </h5>

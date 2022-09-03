@@ -5,7 +5,11 @@ import { Image } from 'react-bootstrap'
 import Center from '../../components/Center'
 import { Content } from '../../styles/styles'
 import Button from '../../components/Button'
-const photos = ['http://www.chapterup.com/wp-content/uploads/elementor/thumbs/Reinholds-pphqu481r7z0tmw8wp4owwvhcjem1n6p17acsnv3dc.jpg', 'http://www.chapterup.com/wp-content/uploads/elementor/thumbs/Suha-pphquujj2kz1upu0n0i8uq8dzbsw1636gtjy8es2j4.jpg', 'http://www.chapterup.com/wp-content/uploads/elementor/thumbs/Willow-pphqvbgmhlm7np5fw7tj3lyoo9hhvpycj5aove2zf4.jpg']
+import pro1 from '../../images/professionals/pro1.jpg'
+import pro2 from '../../images/professionals/pro2.jpg'
+import pro3 from '../../images/professionals/pro3.jpg'
+const photos = [pro1, pro2, pro3]
+
 
 export default function Professionalx() {
 
