@@ -5,30 +5,15 @@ import Footer from '../Footer2/Footer'
 import { useEffect } from 'react'
 import $ from 'jquery'
 import { useState } from 'react'
+import Overlayer from './Overlayer'
 
 export default function SignUp() {
-
-    const [contentHeight, setContentHeight] = useState('1080px')
-
-    useEffect(() => {
-        // $(document).ready(() => {
-        //     $("#aboutus").on('load', function () {
-        //         var h = $("#aboutus").height()
-        //         setContentHeight(h + 'px')
-        //     })
-        // })
-        //let body = document.getElementsByTagName('body')[0]
-
-        $("body").css({ overflow: 'hidden' })
-
-    }, [])
-
 
     return (
         <Col lg={12}>
             <NavBar />
-            <iframe style={{ zIndex: -1 }} id={'aboutus'} title="aboutus" width={window.screen.width} height={window.screen.height} src={"http://www.chapterup.com/contact/"} allowFullScreen frameBorder="0"></iframe>
-            {/* <Footer Top={contentHeight} /> */}
+            <Overlayer />
+
         </Col>
     )
 }
@@ -39,6 +24,5 @@ const Styles = ({
         border: 'dashed 2px red',
         height: '200px',
         width: '200px'
-
     }
 })

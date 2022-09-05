@@ -1,44 +1,25 @@
 import React from 'react'
 import { Col } from 'react-bootstrap'
-import NavBar from '../Navbar2/Navbar'
-import Footer from '../Footer2/Footer'
-import { useEffect } from 'react'
-import $ from 'jquery'
-import { useState } from 'react'
+import NavBar from '../Navbar/Navbar'
+import Footer from '../Footer/Footer'
+import { useEffect, useState } from 'react'
+import PageFace from './PageFace'
+import OurStory from './OurStory'
+import Leads from './Leads'
+import Join from './Join'
 
 export default function AboutUs() {
 
     const [contentHeight, setContentHeight] = useState('1080px')
 
-    useEffect(() => {
-        // $(document).ready(() => {
-        //     $("#aboutus").on('load', function () {
-        //         var h = $("#aboutus").height()
-        //         setContentHeight(h + 'px')
-        //     })
-        // })
-        //let body = document.getElementsByTagName('body')[0]
-        
-        $("body").css({ overflow: 'hidden' })
-
-    }, [])
-
-
     return (
         <Col lg={12}>
             <NavBar />
-            <iframe style={{ zIndex: -1 }} id={'aboutus'} title="aboutus" width={window.screen.width} height={window.screen.height} src={"https://www.chapterup.com/about-us/"} allowFullScreen frameBorder="0"></iframe>
-            {/* <Footer Top={contentHeight} /> */}
+            <PageFace />
+            <OurStory />
+            <Leads />
+            <Join />
+            <Footer Top={contentHeight} />
         </Col>
     )
 }
-
-const Styles = ({
-    wrap: {
-        // position: 'relative',
-        border: 'dashed 2px red',
-        height: '200px',
-        width: '200px'
-
-    }
-})

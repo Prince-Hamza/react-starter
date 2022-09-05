@@ -1,11 +1,11 @@
 import React from 'react'
-import { Col, Row } from 'react-bootstrap'
+import { Row, Col,Button,image } from 'react-bootstrap'
 import { Content } from '../../styles/styles'
-import Button from '../../components/Button'
 
-export default function How() {
+export default function Overlayer() {
     return (
-        <Row lg={12} style={{ ...Styles.background, ...Content.rowCentrify }}>
+        <Col lg={12}>
+                   <Row lg={12} style={{ ...Styles.background, ...Content.rowCentrify }}>
             <div style={Styles.cover} >
                 <h1> How It Works</h1>
 
@@ -32,8 +32,10 @@ export default function How() {
 
             </div>
         </Row>
+        </Col>
     )
 }
+
 
 
 const Styles = ({
@@ -56,3 +58,4 @@ const Styles = ({
         ...Content.colTopLeft
     }
 })
+
