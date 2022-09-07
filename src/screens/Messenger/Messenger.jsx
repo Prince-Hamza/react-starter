@@ -4,11 +4,16 @@ import MessengerIcon from '../../images/messenger.png'
 import Auth from './Auth'
 import Menu from './Menu'
 import ChatHistory from './ChatHistory'
-import Chat from './Chat'
+import Input from './Input'
+import PreviousMessages from './PreviousMessages'
+import ChatNow from './ChatNow'
+import Intro from './Intro'
 
-export default function Messenger() {
+export default function Messenger({ userInfo1, userInfo2, groupInfo, messengerType }) {
     const [Icon, setIcon] = useState(true)
     const [userInfo, setUserInfo] = useState()
+    const [messagesInfo, setMessagesInfo] = useState([])
+    const [chatLinkInfo, setChatLinkInfo] = useState({})
 
     return (
         <Col lg={2}>
@@ -17,8 +22,14 @@ export default function Messenger() {
                 <Col lg={3} style={Styles.messenger} onMouseLeave={(e) => { setIcon(true) }} >
                     {!userInfo && <Auth setUserInfo={setUserInfo} />}
                     {userInfo && <Menu email={userInfo.email} />}
-                    {userInfo && userInfo.email === 'admin@gmail.com' && <ChatHistory />}
-                    {userInfo && <Chat userInfo={userInfo} />}
+                    {userInfo && <ChatHistory setMessages={setMessagesInfo} setChatLinkInfo={setChatLinkInfo} />}
+                    {/* {userInfo && <Chat userInfo={userInfo} />} */}
+                    <Col lg={4} style={Styles.chatColumn} id={'cc'} >
+                        <Intro info={messagesInfo} />
+                        <PreviousMessages info={messagesInfo} />
+                        {chatLinkInfo.chatKey && <ChatNow info={chatLinkInfo} />}
+                        <Input info={userInfo1} linkInfo={chatLinkInfo} />
+                    </Col>
                 </Col>
             }
         </Col>

@@ -5,6 +5,7 @@ import Footer from '../Footer2/Footer'
 import { useEffect } from 'react'
 import $ from 'jquery'
 import { useState } from 'react'
+import InfoForm from './Form'
 import Overlayer from './Overlayer'
 
 export default function SignUp() {
@@ -13,16 +14,9 @@ export default function SignUp() {
         <Col lg={12}>
             <NavBar />
             <Overlayer />
-
+            <InfoForm />
         </Col>
     )
 }
 
-const Styles = ({
-    wrap: {
-        // position: 'relative',
-        border: 'dashed 2px red',
-        height: '200px',
-        width: '200px'
-    }
-})
+
