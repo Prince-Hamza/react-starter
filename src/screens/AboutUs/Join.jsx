@@ -11,7 +11,7 @@ export default function Join() {
                         Join us as a lead
                     </h3>
                     <br />
-                    <h6 style={{ color: 'white' }} >
+                    <h6 style={{ color: 'white', textAlign: 'center' }} >
                         We are looking for people that are passionate about Mental Wellbeing and want to help people through their healing journey. Join our mission and let’s find a pathway to help live a healthier and happier life. Contact us today to join the team.
                     </h6>
                 </Col>

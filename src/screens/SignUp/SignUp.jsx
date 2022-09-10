@@ -1,17 +1,14 @@
 import React from 'react'
 import { Col } from 'react-bootstrap'
-import NavBar from '../Navbar2/Navbar'
+import NavBar from '../Navbar/Navbar'
 import Footer from '../Footer2/Footer'
-import { useEffect } from 'react'
-import $ from 'jquery'
-import { useState } from 'react'
 import InfoForm from './Form'
 import Overlayer from './Overlayer'
 
 export default function SignUp() {
 
     return (
-        <Col lg={12}>
+        <Col g={12} md={12} xs={12} style={{ padding: '0px' }} >
             <NavBar />
             <Overlayer />
             <InfoForm />

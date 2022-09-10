@@ -3,9 +3,11 @@ import { Col, Navbar, Row } from 'react-bootstrap'
 import { Content } from '../../styles/styles'
 import Button from '../../components/Button'
 import NavBar from '../Navbar/Navbar'
+import SetupCall from './SetupCall'
 
 export default function How() {
-    
+
+
     return (
         <Col lg={12} >
             <NavBar />
@@ -35,6 +37,9 @@ export default function How() {
 
                 </div>
             </Row>
+
+            <SetupCall />
+
         </Col>
     )
 }

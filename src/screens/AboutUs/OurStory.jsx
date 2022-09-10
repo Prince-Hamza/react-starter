@@ -7,14 +7,17 @@ import { Content } from '../../styles/styles'
 export default function OurStory() {
     return (
         <Col lg={12} style={Styles.story}>
-            
+
             <br />
 
-            <Row style={{ marginLeft: '40%' }} >
-                <div style={Styles.line}> </div>
-                <h4 style={{ width: '200px', marginLeft: '100px', color: 'blue' }} > Our story  </h4>
-                <div style={Styles.line}> </div>
-            </Row>
+            <Col lg={12} style={{ ...Content.colCentrify }}>
+                <Row style={{ ...Content.rowCentrify, width: '100%' }} >
+                    <div style={Styles.line}> </div>
+                    <div style={Styles.storyText} > Our story </div>
+                    <div style={Styles.line}> </div>
+                </Row>
+            </Col>
+
 
             <br />
 
@@ -23,6 +26,8 @@ export default function OurStory() {
                 <Col lg={5}>
                     <Image style={Styles.image} src={girl} alt={''} />
                 </Col>
+                <p></p>
+
 
                 <Col lg={5}>
 
@@ -54,11 +59,15 @@ export default function OurStory() {
 
 const Styles = ({
     story: {
-        height: '550px',
-        backgroundColor: '#D9D9D9'
+        backgroundColor: '#D9D9D9',
+        border: 'solid 1px #D9D9D9'
+    },
+    storyText: {
+        width: '100px',
+        marginTop: '12px'
     },
     line: {
-        width: '100px',
+        width: '20%',
         height: '1px',
         backgroundColor: 'blue',
         marginTop: '16px',
@@ -86,3 +95,4 @@ const Styles = ({
         borderRadius: '50px'
     }
 })
+

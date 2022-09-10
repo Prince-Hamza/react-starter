@@ -3,12 +3,15 @@ import { Row, Col, Image } from 'react-bootstrap'
 import { Content } from '../../styles/styles'
 import { useNavigate } from 'react-router-dom'
 import chapterUp from '../../images/chapterup.png'
+import { FaFacebookF } from 'react-icons/fa'
+import { BsInstagram } from 'react-icons/bs'
+import { FaLinkedinIn } from 'react-icons/fa'
 
 export default function Footer() {
     const navigate = useNavigate()
     return (
         <Row lg={12} style={Content.rowCentrify} >
-            <Row lg={10} style={Content.rowCentrify} >
+            <Row lg={12} style={Content.rowCentrify} >
 
                 <Col lg={3} style={{ ...Content.colCentrify, marginBottom: '25px' }} >
                     <Image style={{ width: '220px', height: '114px' }} src={chapterUp} />
@@ -34,10 +37,12 @@ export default function Footer() {
                     <br />
                 </Col>
 
-                <Col lg={3} >
+                <Col lg={2} style={{ ...Content.colCentrify, border: 'dashed' }} >
                     <div style={Styles.heading} > Social Media </div>
                     <Row>
-                        <i class="fab fa-facebook-f"> </i>
+                        <FaFacebookF style={Styles.icon} />
+                        <BsInstagram style={Styles.icon} />
+                        <FaLinkedinIn style={Styles.icon} />
                     </Row>
                 </Col>
 
@@ -53,6 +58,12 @@ const Styles = ({
         color: '#8D51FF',
         font: 'bold 1.4rem poppins',
         textTransform: 'uppercase',
-        letterSpacing: '1.4px'
+        letterSpacing: '1.4px',
+        marginBottom:'10px'
+    },
+    icon: {
+        width: '50px',
+
+
     }
 })

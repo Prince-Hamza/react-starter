@@ -16,6 +16,7 @@ import StripeSubscribe from './screens/StripeSubscribe/StripeSubscription'
 import AboutUs from './screens/AboutUs/AboutUs'
 import GetSupport from './screens/GetSupport/GetSupport'
 import SignUp from './screens/SignUp/SignUp'
+import Admin from './screens/Admin/Admin'
 import './App.css'
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route exact path="/aboutus" element={<AboutUs />} />
           <Route exact path="/getsupport" element={<GetSupport />} />
           <Route exact path="/contact" element={<SignUp />} />
+          <Route exact path="/admin" element={<Admin />} />
         </Routes>
       </BrowserRouter>
     </AppContext.Provider>

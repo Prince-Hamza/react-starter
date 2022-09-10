@@ -29,6 +29,12 @@ export const Content = ({
         justifyContent: 'center',
         alignItems: 'center'
     },
+    rowTopCenter:{
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'flex-start'
+    },
     rowLeftStart: {
         display: 'flex',
         flexDirection: 'row',

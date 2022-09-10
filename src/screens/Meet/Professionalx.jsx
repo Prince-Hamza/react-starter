@@ -18,7 +18,7 @@ export default function Professionalx() {
     return (
         <Col lg={12} xs={12} style={Styles.theme}>
             <br />
-            <Center>
+            <Center style={{ border: 'dashed 1px red' }}>
                 <h3 style={{ color: 'white' }}> Meet out talented Mental Health Wellbeing Professionals</h3>
             </Center>
 
@@ -47,12 +47,12 @@ export default function Professionalx() {
 const Styles = ({
     theme: {
         backgroundColor: '#8D51FF',
-        marginBottom:'25px'
+        marginBottom: '25px'
     },
     Button: {
         backgroundColor: 'white',
         color: 'black',
         font: '16px poppins',
-        marginBottom:'15px'
+        marginBottom: '15px'
     }
 })
