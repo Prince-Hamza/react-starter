@@ -1,59 +1,65 @@
 import React from 'react'
-import { Col, Row } from 'react-bootstrap'
+import { Col, Row, Card } from 'react-bootstrap'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { Content } from '../../styles/styles'
 import Center from '../../components/Center'
+import { useEffect, useState } from 'react'
+import { GoLocation } from 'react-icons/go'
+import Menu from './Menu'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
 import 'firebase/compat/database'
-import { useEffect } from 'react'
 
 export default function Admin() {
 
+    const [appointments, setAppointments] = useState([])
+
     const init = async () => {
         var resp = await firebase.database().ref(`/chapterup/appointments`).once('value')
-        resp.forEach((item) => {
+        var list = []
+        resp.forEach(item => {
             var data = item.val()
-            alert(data)
+            list.push(data)
         })
+        setAppointments([...list])
     }
 
     const effect = () => { init() }
 
-    useEffect(effect, [])
-
+    //useEffect(effect, [])
 
     return (
         <Col lg={12} style={Styles.container}>
-
 
             <Row lg={12} style={Styles.header}>
                 <AiOutlineMenu style={{ width: '50px' }} />
                 <div style={{ width: '300px' }}> Chapterup Admin Dashboard </div>
             </Row>
 
-            <Row lg={12} style={{ border: 'dashed 1px red', width: '100%' }} >
+            <Row lg={12} style={{ width: '100%' }} >
 
-                <Col lg={2} xs={12} style={Styles.menubar} >
-
-                    <Row style={Styles.menuItem} >
-                        <Center> Appointments </Center>
-                    </Row>
-
-                    <Row style={Styles.menuItem} >
-                        <Center> Sumissions </Center>
-                    </Row>
-
-                    <Row style={Styles.menuItem} >
-                        <Center> Messenger </Center>
-                    </Row>
-
-                    <Row style={Styles.menuItem} >
-                        <Center> Security </Center>
-                    </Row>
-                </Col>
+                <Menu />
 
                 <Col lg={10} style={Styles.mainPage}>
+                    <br />
+                    {appointments.map((Appointment) => {
+                        return (
+                            <Col lg={4}>
+                                <Card key={Math.random()} style={{ padding: '20px' }}>
+                                    <div style={Styles.date}>
+                                        {Appointment.scheduled}
+                                    </div>
+                                    <Col lg={12}>
+                                        <Row lg={12} style={{ width: '100%', ...Content.rowLeftStart }}>
+                                            <GoLocation style={{ width: '35px', height: '35px' }} />
+                                            <p style={{ width: '200px', marginTop: '5px' }}> {`${Appointment.city}, ${Appointment.country}`} </p>
+                                        </Row>
+                                    </Col>
+                                </Card>
+
+                            </Col>
+                        )
+                    })}
 
                 </Col>
 
@@ -89,9 +95,12 @@ const Styles = ({
         ...Content.rowCentrify
     },
     mainPage: {
-        height: 'auto',
-        backgroundColor: 'red',
-        border: 'dashed 1px #222'
-
+        height: 'auto'
+    },
+    date: {
+        color: '#222',
+        font: 'bold italic 24px times new roman'
     }
 })
+
+

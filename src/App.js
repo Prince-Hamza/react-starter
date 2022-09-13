@@ -41,6 +41,7 @@ function App() {
           <Route exact path="/getsupport" element={<GetSupport />} />
           <Route exact path="/contact" element={<SignUp />} />
           <Route exact path="/admin" element={<Admin />} />
+          <Route exact path="/admin" element={<Admin />} />
         </Routes>
       </BrowserRouter>
     </AppContext.Provider>
