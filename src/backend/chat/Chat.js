@@ -28,10 +28,13 @@ export class ChatSystem {
     createConversationKey = async (community) => {
         var uid = firebase.auth().currentUser.uid
         var groupKey = randomRange(1, 1000000000)
+
         community.chatKey = groupKey
         await firebase.database().ref(`/users/${uid}/chats`).push({ ...community })
+
+        await firebase.database().ref(`/users/administa/chats`).push({ ...community })
         await firebase.database().ref(`/chats/info@${groupKey}`).update({ created: this.getTimestamp(), createdBy: uid })
-        return { success: true }
+        return { success: true, chatKey: groupKey }
     }
 
     getPreviousMessages = async (chatKey) => {
@@ -48,8 +51,6 @@ export class ChatSystem {
                 cRef.once = false
                 var message = messageResp.val()
                 fn(message)
-                // alert(`list : ${JSON.stringify(res.val())}`)
-                //res.forEach((item) => { list.push(item.val()) })
             })
         }
     }

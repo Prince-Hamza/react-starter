@@ -1,17 +1,32 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const stripe = require("stripe")("sk_test_wbc0UlPqkx0Pd9vf3zmsXo5L003LUkGS3c");
+const cors = require('cors');
+const bodyParser = require('body-parser')
+const router = require('./api/router.js')
+const compression = require('compression')
+require('dotenv').config()
 
-app.use(express.static("public"))
-app.use(express.json())
+app.use(compression())
+app.use(cors())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
-const calculateOrderAmount = items => { return 1400 }
+app.use('/api', router)
 
-app.post("/create-payment-intent", async (req, res) => {
-    const { items } = req.body;
-    const paymentIntent = await stripe.paymentIntents.create({ amount: calculateOrderAmount(items), currency: "usd" })
-    res.send({ clientSecret: paymentIntent.client_secret })
-})
+app.use('/', express.static(__dirname + '/build'))
+app.use('*', express.static(__dirname + '/build'))
 
-console.log('')
-app.listen(5000, () => console.log('Node server listening on port 4242!'));
+const port = process.env.PORT
+app.listen(port || 5000)
+console.log(`Server running on env port: ${port || 5000}`)
+
+
+
+
+
+
+
+
+
+

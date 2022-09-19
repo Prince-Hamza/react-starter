@@ -25,12 +25,12 @@ export default function ChatHistory({ setMessages, setChatLinkInfo }) {
 
 
     const init = async () => {
-        //var uid = firebase.auth().currentUser ? firebase.auth().currentUser.uid : "administa"
-        //var list = await chatSystem.getChatList(uid)
-        //setChatsList([...list])
-        //setSelectedConvo(list[0])
-        //setChatLinkInfo({...list[0]})
-        //getPreviousMessages(list[0])
+        var uid = firebase.auth().currentUser ? firebase.auth().currentUser.uid : "administa"
+        var list = await chatSystem.getChatList(uid)
+        setChatsList([...list])
+        setSelectedConvo(list[0])
+        setChatLinkInfo({...list[0]})
+        getPreviousMessages(list[0])
     }
 
     const effect = () => { init() }

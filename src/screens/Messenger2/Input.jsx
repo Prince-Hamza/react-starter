@@ -7,9 +7,9 @@ import { useState } from 'react'
 const defaultPhoto = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrej4M_I8J8reVuRw4Ds2C1mVxWEEcq4xh9w&usqp=CAU'
 
 export default function Input({ info, linkInfo }) {
-    
 
-    const userId = firebase.auth().currentUser.uid
+
+    const userId = firebase.auth().currentUser ? firebase.auth().currentUser.uid : "administa"
     const [newMessage, setNewMessage] = useState({ text: null, image: info.photoURL ? info.photoURL : defaultPhoto, userId: userId, userName: info.displayName ? info.displayName : 'Anonymous' })
 
 
@@ -19,9 +19,11 @@ export default function Input({ info, linkInfo }) {
         setNewMessage(newMessage)
     }
 
-    const onEnter = (e) => { if (e.keyCode === 13) { 
-        firebase.database().ref(`/chats/${linkInfo.chatKey}`).push({ ...newMessage }) 
-    }}
+    const onEnter = (e) => {
+        if (e.keyCode === 13) {
+            firebase.database().ref(`/chats/${linkInfo.chatKey}`).push({ ...newMessage })
+        }
+    }
 
     return (
         <Col lg={12} style={Styles.container}>
@@ -32,8 +34,6 @@ export default function Input({ info, linkInfo }) {
     )
 }
 
-
-
 const Styles = ({
     container: {
         position: 'absolute',
@@ -43,32 +43,3 @@ const Styles = ({
         width: '95%'
     }
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

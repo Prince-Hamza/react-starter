@@ -20,16 +20,19 @@ export default function Messenger({ userInfo1, userInfo2, groupInfo, messengerTy
             {Icon && <Image style={Styles.icon} src={MessengerIcon} onMouseOver={() => { setIcon(false) }} />}
             {!Icon &&
                 <Col lg={3} style={Styles.messenger} onMouseLeave={(e) => { setIcon(true) }} >
-                    {!userInfo && <Auth setUserInfo={setUserInfo} />}
+                    {!userInfo && <Auth setUserInfo={setUserInfo} userInfo={userInfo1} setChatLinkInfo={setChatLinkInfo} />}
                     {userInfo && <Menu email={userInfo.email} />}
                     {userInfo && <ChatHistory setMessages={setMessagesInfo} setChatLinkInfo={setChatLinkInfo} />}
-                    {/* {userInfo && <Chat userInfo={userInfo} />} */}
-                    <Col lg={4} style={Styles.chatColumn} id={'cc'} >
-                        <Intro info={messagesInfo} />
-                        <PreviousMessages info={messagesInfo} />
-                        {chatLinkInfo.chatKey && <ChatNow info={chatLinkInfo} />}
-                        <Input info={userInfo1} linkInfo={chatLinkInfo} />
-                    </Col>
+
+                    {userInfo &&
+                        <Col lg={4} style={Styles.chatColumn} id={'cc'} >
+                            <Intro info={messagesInfo} />
+                            <PreviousMessages info={messagesInfo} />
+                            {chatLinkInfo.chatKey && <ChatNow info={chatLinkInfo} />}
+                            <Input info={userInfo} linkInfo={chatLinkInfo} />
+                        </Col>
+                    }
+
                 </Col>
             }
         </Col>

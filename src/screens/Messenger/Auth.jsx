@@ -7,31 +7,47 @@ import { webAuth } from '../../backend/auth/firebaseAuth'
 import { useState } from 'react'
 import { AppContext } from '../../Context'
 import { useContext } from 'react'
-import {toast , ToastContainer} from 'react-toastify'
-
+import { toast, ToastContainer } from 'react-toastify'
+import { ChatSystem } from '../../backend/chat/Chat'
+import firebase from 'firebase/compat/app'
+import 'firebase/compat/auth'
 const auth = new webAuth()
+const chatSystem = new ChatSystem()
 const googleIcon = `https://www.freepnglogos.com/uploads/google-logo-png/google-logo-icon-png-transparent-background-osteopathy-16.png`
 const emailIcon = `https://pnggrid.com/wp-content/uploads/2021/12/Email-Icon-Png-Transparent.png`
 
-export default function Auth({ setUserInfo }) {
+export default function Auth({ userInfo, setUserInfo, setChatLinkInfo }) {
 
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
   const { appData, setAppData } = useContext(AppContext)
 
 
-  const googleLogin = () => {
-
-  }
+  /*  */ const googleLogin = () => { }
 
   const continueWithEmail = async () => {
     var resp, resp2
     resp = await auth.EmailLogin(email, pass)
-    if (resp.user) { toast(`Login Successfull`); setUserInfo(resp.user.providerData[0]) }
+
+    if (resp.user) {
+      toast(`Login Successfull`);
+      setUserInfo(resp.user.providerData[0])
+      var uid = firebase.auth().currentUser.uid
+      var res = await chatSystem.createConversationKey({ partner1: 'Administa', partner2: '' })
+      setChatLinkInfo({ chatKey: res.chatKey})
+    }
+
     if (resp.error) resp2 = await auth.EmailSignUp(email, pass)
-    
-    if (resp2 && resp2.user) { toast(`Signup Successful`); setUserInfo(resp.user.providerData[0]) }
+
+    if (resp2 && resp2.user) {
+      toast(`Signup Successful`);
+      setUserInfo(resp.user.providerData[0])
+      var resk = await chatSystem.createConversationKey(userInfo)
+      setChatLinkInfo({ chatKey: resk.chatKey})
+    }
+
     if (resp2 && resp2.error) alert(`error : ${resp2.error}`)
+
   }
 
   return (

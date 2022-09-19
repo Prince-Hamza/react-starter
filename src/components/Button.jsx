@@ -1,9 +1,11 @@
 import React from 'react'
 import { Content } from '../styles/styles'
 
-export default function Button({ style, children }) {
+export default function Button({ style, children, onClick }) {
     return (
-        <button style={{ ...Styles.Button, ...Content.rowCentrify, ...style}}>
+        <button style={{ ...Styles.Button, ...Content.rowCentrify, ...style }} onClick={() => {
+            onClick()
+        }}>
             {children}
         </button>
     )

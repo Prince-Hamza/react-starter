@@ -8,7 +8,7 @@ export default function Step4() {
     const { formData, setFormData } = useContext(FormContext)
 
     const onSelect = (value) => {
-        formData.step3_data.selected = value
+        formData.step3_data.selected.push(value)
         setFormData({ ...formData })
     }
 
@@ -20,7 +20,7 @@ export default function Step4() {
 
     const forward = (stepNum) => {
         formData.step = stepNum
-        formData.percentage = 25
+        formData.percentage = 77
         setFormData({ ...formData })
     }
 

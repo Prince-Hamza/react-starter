@@ -32,7 +32,7 @@ export default function AppFace() {
       <Col lg={4} xs={11} >
         <br />
 
-        <iframe width="100%" height="335px" src="https://www.youtube.com/embed/uzSoHuVkHSk" title="ChapterUp - Mental Wellbeing Virtual Support Groups" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="100%" height="335px" src="https://www.youtube.com/embed/uzSoHuVkHSk" title="ChapterUp - Mental Wellbeing Virtual Support Groups" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         {/* <iframe title="yt" width="100%" height="335px"
           src="https://www.youtube.com/watch?v=uzSoHuVkHSk&feature=youtu.be">
         </iframe> */}

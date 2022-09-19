@@ -13,10 +13,13 @@ import Footer from '../Footer/Footer'
 import Messenger from '../Messenger/Messenger'
 
 export default function Main() {
+
+    const userInfo1 = ({ displayName: 'admin', photoURL: '', uid: '' })
+    
     return (
         <Col lg={12} md={12} xs={12}>
             <NavBar />
-            {/* <Messenger /> */}
+            <Messenger userInfo1={userInfo1} />
             <AppFace />
             <Explain />
             <Cards />

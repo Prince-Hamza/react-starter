@@ -5,7 +5,7 @@ import MeetProfessionals from './screens/Meet/MeetProfessionals'
 import Messenger from './screens/Messenger/Messenger'
 import "bootstrap/dist/css/bootstrap.min.css"
 import { AppContext } from './Context'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import firebase from 'firebase/compat/app'
 import { firebaseConfig } from './backend/config'
 import { setScheme } from './backend/scheme/scheme'
@@ -17,6 +17,10 @@ import AboutUs from './screens/AboutUs/AboutUs'
 import GetSupport from './screens/GetSupport/GetSupport'
 import SignUp from './screens/SignUp/SignUp'
 import Admin from './screens/Admin/Admin'
+import Appointments from './screens/Admin/Appointments'
+import Security from './screens/Admin/Security'
+import Submissions from './screens/Admin/Submissions'
+import Messenger2 from './screens/Messenger2/Messenger'
 import './App.css'
 
 function App() {
@@ -24,6 +28,8 @@ function App() {
 
   if (!firebase.apps.length) firebase.initializeApp(firebaseConfig)
   setScheme()
+
+  const userInfo1 = ({ displayName: 'admin', photoURL: '', uid: '' })
 
   return (
     <AppContext.Provider value={{ appData: appData, setAppData: setAppData }} >
@@ -33,7 +39,7 @@ function App() {
           <Route exact path="/stripe" element={<Stripes />} />
           <Route exact path="/subscription" element={<StripeSubscribe />} />
           <Route exact path="/professionals" element={<MeetProfessionals />} />
-          <Route exact path="/messenger" element={<Messenger />} />
+          <Route exact path="/messenger" element={<Messenger userInfo1={userInfo1} />} />
           <Route exact path="/community" element={<Community />} />
           <Route exact path="/create" element={<Create />} />
           <Route exact path="/community/:id" element={<Timelines />} />
@@ -41,7 +47,10 @@ function App() {
           <Route exact path="/getsupport" element={<GetSupport />} />
           <Route exact path="/contact" element={<SignUp />} />
           <Route exact path="/admin" element={<Admin />} />
-          <Route exact path="/admin" element={<Admin />} />
+          <Route exact path="/admin/appointments" element={<Appointments />} />
+          <Route exact path="/admin/security" element={<Security />} />
+          <Route exact path="/admin/submissions" element={<Submissions />} />
+          <Route exact path="/adminChat" element={<Messenger2 userInfo1={userInfo1} />} />
         </Routes>
       </BrowserRouter>
     </AppContext.Provider>

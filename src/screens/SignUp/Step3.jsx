@@ -8,19 +8,21 @@ export default function Step3() {
     const { formData, setFormData } = useContext(FormContext)
 
     const onSelect = (value) => {
-        formData.step3_data.selected = value
+        alert(value)
+        alert(JSON.stringify(formData.step3_data))
+        formData.step3_data.selected.push(value)
         setFormData({ ...formData })
     }
 
     const back = (stepNum) => {
         formData.step = stepNum
-        formData.percentage = 50
+        formData.percentage = 37
         setFormData({ ...formData })
     }
 
     const forward = (stepNum) => {
         formData.step = stepNum
-        formData.percentage = 25
+        formData.percentage = 66
         setFormData({ ...formData })
     }
 

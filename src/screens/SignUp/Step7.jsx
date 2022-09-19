@@ -8,7 +8,7 @@ export default function Step7() {
     const { formData, setFormData } = useContext(FormContext)
 
     const onSelect = (value) => {
-        formData.step7_data.selected = value
+        formData.step7_data.selected.push(value)
         setFormData({ ...formData })
     }
 
@@ -20,7 +20,7 @@ export default function Step7() {
 
     const forward = (stepNum) => {
         formData.step = stepNum
-        formData.percentage = 25
+        formData.percentage = 90
         setFormData({ ...formData })
     }
 
@@ -36,8 +36,8 @@ export default function Step7() {
             />
 
             <Row lg={6}>
-                <Button style={{ marginRight: '10px' }} onClick={() => { back(2) }} > Previous </Button>
-                <Button onClick={() => { forward(4) }} > Next </Button>
+                <Button style={{ marginRight: '10px' }} onClick={() => { back(6) }} > Previous </Button>
+                <Button onClick={() => { forward(8) }} > Next </Button>
             </Row>
 
         </Col>

@@ -4,7 +4,6 @@ import { Content } from '../../styles/styles'
 import Center from '../../components/Center'
 
 export default function Menu({ email }) {
-    alert(email)
     return (
         <Row lg={12} style={Styles.Menu}>
             {email === 'admin@gmail.com' && <Col lg={6} style={Content.colCentrify}>

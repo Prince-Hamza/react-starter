@@ -1,21 +1,13 @@
 import React, { useState } from 'react'
-import { Col, Row, Button } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
 import { Content } from '../../styles/styles'
 import CalendarWrapper from './Calendar'
-import axios from 'axios'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { MdVideocam } from 'react-icons/md'
-import firebase from 'firebase/compat/app'
-import 'firebase/compat/database'
 
-export default function SetupCall() {
+export default function SetupCall({ Data, setData, value , onChange }) {
 
-    const [value, onChange] = useState(new Date())
-
-    const saveAppointment = async () => {
-        var userResp = await axios.get(`https://hutils.loxal.net/whois`)
-        await firebase.database().ref('/chapterup/appointments').push({ scheduled: value.toDateString(), ...userResp.data })
-    }
+    
 
     return (
         <Col lg={12} xs={12} style={{ ...Content.colCentrify }} >
@@ -42,40 +34,28 @@ export default function SetupCall() {
             <br />
 
 
-            <Row lg={12} style={Styles.mainWrap}>
-
-                <Col lg={3} style={Styles.left}>
-                    <h6>  Jay Kanahara </h6>
-                    <div style={Styles.fifteen} > 15 minutes meeting </div>
-                    <br />
-                    <div> 15 min </div>
-                    <div>  Web conferencing details provided upon confirmation</div>
-                    <br />
-                    <div> please use zoom details </div>
-                    <br />
-                    <div> Jay K is inviting you to a scheduled Zoom meeting
-                    </div>
-                </Col>
-
-                <Col lg={3} style={Styles.right}>
-                    <CalendarWrapper value={value} onChange={onChange} />
-                </Col>
-
-            </Row>
-
-            <br />
-
-            <Button onClick={() => { saveAppointment() }} >
-                Schedule
-            </Button>
+            <Col lg={6}>
+                <Row style={Styles.mainWrap}>
+                    <Col lg={5} style={Styles.left}>
+                        <br />
+                        <h6>  Jay Kanahara </h6>
+                        <div style={Styles.fifteen} > 15 minutes meeting </div>
+                        <br />
+                        <div> 15 min </div>
+                        <div>  Web conferencing details provided upon confirmation</div>
+                        <br />
+                        <div> please use zoom details </div>
+                        <br />
+                        <div> Jay K is inviting you to a scheduled Zoom meeting    </div>
+                        <br />
+                    </Col>
+                    <Col lg={5} style={Styles.right}>
+                        <CalendarWrapper value={value} onChange={onChange} />
+                    </Col>
+                </Row>
+            </Col>
 
             <br />
-            
-            <h6> What does it cost</h6>
-
-            <p>
-                Our initial consultation is free. At this point we work with you to either organise an initial one on one with a therapist or healer or include you in a supportive group. We will confirm the standard one on one sessions with you at our consultation. You can join the initial group session free. If you’d like to continue to be part of our group we would appreciate a payment of $29 on a monthly basis to be able to pay our kind hosts.
-            </p>
 
         </Col>
     )
@@ -100,16 +80,15 @@ const Styles = ({
     mainWrap: {
         width: '100%',
         height: 'auto',
+        boxShadow: '0px 0px 8px 1px lightgray',
         ...Content.rowTopCenter,
     },
     left: {
-        boxShadow: '0px 0px 8px 1px lightgray',
         marginRight: '5px',
-        height: '270px',
         ...Content.colTopLeft
     },
     right: {
-        boxShadow: '0px 0px 8px 1px lightgray',
+        //  boxShadow: '0px 0px 8px 1px lightgray',
     },
     fifteen: {
         font: 'bold 28px poppins',
