@@ -10,6 +10,7 @@ import ChatNow from './ChatNow'
 import Intro from './Intro'
 
 export default function Messenger({ userInfo1, userInfo2, groupInfo, messengerType }) {
+
     const [Icon, setIcon] = useState(true)
     const [userInfo, setUserInfo] = useState()
     const [messagesInfo, setMessagesInfo] = useState([])
@@ -19,15 +20,16 @@ export default function Messenger({ userInfo1, userInfo2, groupInfo, messengerTy
         <Col lg={2}>
             {Icon && <Image style={Styles.icon} src={MessengerIcon} onMouseOver={() => { setIcon(false) }} />}
             {!Icon &&
-                <Col lg={3} style={Styles.messenger} onMouseLeave={(e) => { setIcon(true) }} >
+                <Col lg={3} style={Styles.messenger}  >
                     {!userInfo && <Auth setUserInfo={setUserInfo} userInfo={userInfo1} setChatLinkInfo={setChatLinkInfo} />}
-                    {userInfo && <Menu email={userInfo.email} />}
-                    {userInfo && <ChatHistory setMessages={setMessagesInfo} setChatLinkInfo={setChatLinkInfo} />}
+                    {/* {userInfo && <Menu email={userInfo.email} />} */}
+                    {userInfo && <ChatHistory setMessages={setMessagesInfo} chatLinkInfo={chatLinkInfo} setChatLinkInfo={setChatLinkInfo} />}
 
                     {userInfo &&
-                        <Col lg={4} style={Styles.chatColumn} id={'cc'} >
-                            <Intro info={messagesInfo} />
-                            <PreviousMessages info={messagesInfo} />
+                        <Col lg={12} style={Styles.chatColumn} id={'cc'} >
+                            {/* <Intro info={messagesInfo} /> */}
+
+                            {/* <PreviousMessages info={chatLinkInfo} /> */}
                             {chatLinkInfo.chatKey && <ChatNow info={chatLinkInfo} />}
                             <Input info={userInfo} linkInfo={chatLinkInfo} />
                         </Col>

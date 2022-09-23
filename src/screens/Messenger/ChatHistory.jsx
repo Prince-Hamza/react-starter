@@ -6,7 +6,7 @@ import { Col, Image, Row } from 'react-bootstrap'
 import { Content } from '../../styles/styles'
 const chatSystem = new ChatSystem()
 
-export default function ChatHistory({ setMessages, setChatLinkInfo }) {
+export default function ChatHistory({ setMessages, chatLinkInfo, setChatLinkInfo }) {
 
     const [chatsList, setChatsList] = useState([])
     const [selectedConvo, setSelectedConvo] = useState({})
@@ -15,6 +15,7 @@ export default function ChatHistory({ setMessages, setChatLinkInfo }) {
     const getPreviousMessages = async (info) => {
         var chats = await chatSystem.getPreviousMessages(info.chatKey)
         setMessages([...chats])
+
     }
 
 
@@ -30,10 +31,12 @@ export default function ChatHistory({ setMessages, setChatLinkInfo }) {
         //setChatsList([...list])
         //setSelectedConvo(list[0])
         //setChatLinkInfo({...list[0]})
-        //getPreviousMessages(list[0])
+        //  alert(chatLinkInfo.chatKey)
+        // getPreviousMessages(chatLinkInfo.chatKey)
     }
 
     const effect = () => { init() }
+
     useEffect(effect, [])
 
     return (

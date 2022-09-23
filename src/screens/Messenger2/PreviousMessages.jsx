@@ -21,7 +21,6 @@ export default function PreviousMessages({ info }) {
                 return (
                     <Col lg={12} style={Styles.container}>
                         <Row lg={12} style={{ width: '100%' }}>
-
                             <Image roundedCircle style={{ width: '47px', height: '40px', marginRight: '20px', marginLeft: '15px', backgroundColor: 'white' }} src={item.image} />
                             <div style={{ color: 'white', width: '80%' , marginTop:'5px' }} > {item.text} </div>
                         </Row>

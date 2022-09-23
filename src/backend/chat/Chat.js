@@ -28,13 +28,28 @@ export class ChatSystem {
     createConversationKey = async (community) => {
         var uid = firebase.auth().currentUser.uid
         var groupKey = randomRange(1, 1000000000)
-
         community.chatKey = groupKey
-        await firebase.database().ref(`/users/${uid}/chats`).push({ ...community })
 
-        await firebase.database().ref(`/users/administa/chats`).push({ ...community })
-        await firebase.database().ref(`/chats/info@${groupKey}`).update({ created: this.getTimestamp(), createdBy: uid })
-        return { success: true, chatKey: groupKey }
+        // check if admin has these chats
+
+        var existingKey = false, found = false
+        var resp = await firebase.database().ref(`/users/Administa/chats`).once('value')
+        resp.forEach((item) => {
+            if (item.val().partner2) {
+                found = true
+                existingKey = item.val().chatKey
+                community.chatKey = existingKey
+            }
+        })
+
+        if (!found) {
+            await firebase.database().ref(`/users/Administa/chats`).push({ chatKey: community.chatKey, partner1: 'Administa', partner2: uid })
+            await firebase.database().ref(`/users/${uid}/chats`).push({ ...community })
+        }
+
+
+        await firebase.database().ref(`/chats/info@${community.chatKey}`).update({ created: this.getTimestamp(), createdBy: uid })
+        return { success: true, chatKey: existingKey ? existingKey : groupKey }
     }
 
     getPreviousMessages = async (chatKey) => {
@@ -47,8 +62,8 @@ export class ChatSystem {
     onMessage = (path, fn) => {
         var cRef = this
         if (this.once) {
-            firebase.database().ref(path).limitToLast(1).on('child_added', (messageResp) => {
-                cRef.once = false
+            cRef.once = false
+            firebase.database().ref(path).on('child_added', (messageResp) => {
                 var message = messageResp.val()
                 fn(message)
             })
