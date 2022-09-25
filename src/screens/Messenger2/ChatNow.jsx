@@ -39,7 +39,7 @@ export default class ChatNow extends Component {
 
   render() {
     return (
-      <Col lg={12} id={'messages'} style={{ overflow: 'auto', border:'dashed 5px' }}>
+      <Col lg={12} id={'messages'} style={{ overflow: 'auto' }}>
         {this.state.messages.length > 0 && this.state.messages.map((item) => {
           return (
             <Col lg={12} style={Styles.container}>

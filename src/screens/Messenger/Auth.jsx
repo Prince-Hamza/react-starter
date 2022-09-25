@@ -31,19 +31,21 @@ export default function Auth({ userInfo, setUserInfo, setChatLinkInfo }) {
 
     if (resp.user) {
       toast(`Login Successfull`);
+      auth.additionalInfo('Anonymous')
       setUserInfo(resp.user.providerData[0])
       var uid = firebase.auth().currentUser.uid
       var res = await chatSystem.createConversationKey({ partner1: 'Administa', partner2: '' })
-      setChatLinkInfo({ chatKey: res.chatKey})
+      setChatLinkInfo({ chatKey: res.chatKey })
     }
 
     if (resp.error) resp2 = await auth.EmailSignUp(email, pass)
 
     if (resp2 && resp2.user) {
       toast(`Signup Successful`);
+      auth.additionalInfo('Anonymous')
       setUserInfo(resp.user.providerData[0])
       var resk = await chatSystem.createConversationKey(userInfo)
-      setChatLinkInfo({ chatKey: resk.chatKey})
+      setChatLinkInfo({ chatKey: resk.chatKey })
     }
 
     if (resp2 && resp2.error) alert(`error : ${resp2.error}`)

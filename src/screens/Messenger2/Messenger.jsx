@@ -34,7 +34,7 @@ export default function Messenger2({ userInfo1, userInfo2, groupInfo, messengerT
             {!Icon &&
                 <Col lg={12} style={{ ...Styles.messenger, height: window.innerHeight - 15 + 'px' }} onMouseLeave={(e) => { }}>
                     <Menu />
-                    <Row lg={12} style={{ border: 'dashed 2px red' }}>
+                    <Row lg={12}>
                         <Col lg={3} style={Styles.chatHistory} >
                             <ChatHistory setMessages={setMessagesInfo} setChatLinkInfo={setChatLinkInfo} />
                         </Col>
@@ -77,13 +77,11 @@ const Styles = ({
     chatHistory: {
         backgroundColor: '#222',
         height: window.innerHeight - 35 + 'px',
-        border: 'solid 1px white'
     },
     chatColumn: {
         backgroundColor: '#222',
         padding: '0px',
         height: '850px',
         overflow: 'auto',
-        border: 'dashed 2px blue',
     }
 })

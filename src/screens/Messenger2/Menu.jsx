@@ -28,10 +28,7 @@ export default function Menu() {
                         </div>
                     </Col>
                 </Row>
-
-
             </Col>
-
         </Row>
     )
 }
@@ -40,7 +37,6 @@ const Styles = ({
     Menu: {
         backgroundColor: '#222',
         color: 'white',
-        border: 'solid 1px white'
     },
     history: { ...Content.colCentrify }
 })

@@ -1,5 +1,8 @@
 import firebase from 'firebase/compat/app'
 import "firebase/compat/auth";
+import sha256 from 'crypto-js/sha256'
+import Cookies from 'js-cookie'
+import axios from 'axios'
 
 export class webAuth {
 
@@ -31,14 +34,39 @@ export class webAuth {
     }
 
     googleLogin = () => {
-        
+
     }
 
-    loginSession = () => {
-        // dummy email password
-        // convert sha5
-        // put in cookies and database
-        // 
+    setLoginSession = async (email, password) => {
+        // executed after successful login
+        var authSha = sha256(`${email}___${password}`)  // 3 underscores
+        try {
+            await firebase.database().ref(`sessions/${authSha}`).update({ email: email, password: password })
+        } catch (ex) {
+            alert(ex)
+        }
+
+        alert('update successful')
+        Cookies.set('sessionEncSha256', authSha)
+        return { success: true }
+    }
+
+    getLoginSession = async () => {
+        var sha256 = Cookies.get('sessionEncSha256')
+        var resp = await firebase.database().ref(`/sessions/${sha256}`).once('value')
+        var data = resp.val()
+        if (data === null) return { error: 'Session expired or not found' }
+        var emailLogin = await this.EmailLogin(data.email, data.password)
+        return emailLogin
+    }
+
+
+    additionalInfo = async (userName) => {
+        var uid = firebase.auth().currentUser.uid
+        console.log(`additional info: uid : ${uid}`);
+        var userResp = await axios.get(`https://hutils.loxal.net/whois`)
+        var userInfo = userResp.data
+        await firebase.database().ref(`users/${uid}`).update({ displayName: userName ? userName : 'Anonymous', city: userInfo.city, country: userInfo.country })
     }
 
 
