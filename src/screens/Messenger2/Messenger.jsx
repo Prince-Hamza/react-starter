@@ -11,7 +11,9 @@ import { ToastContainer, toast } from 'react-toastify'
 import firebase from 'firebase/compat/app'
 import auth from 'firebase/compat/auth'
 
+
 export default function Messenger2({ userInfo1, userInfo2, groupInfo, messengerType }) {
+
     // userInfo1 : photoUrl, displayName
 
     const [Icon, setIcon] = useState(false)
@@ -38,7 +40,7 @@ export default function Messenger2({ userInfo1, userInfo2, groupInfo, messengerT
                         <Col lg={3} style={Styles.chatHistory} >
                             <ChatHistory setMessages={setMessagesInfo} setChatLinkInfo={setChatLinkInfo} />
                         </Col>
-                        <Col lg={9} style={Styles.chatColumn} id={'cc'} >
+                        <Col lg={9} style={Styles.chatColumn} id={'messages'} >
                             <Intro info={messagesInfo} />
                             <PreviousMessages info={messagesInfo} />
                             {chatLinkInfo.chatKey && <ChatNow info={chatLinkInfo} />}
@@ -81,7 +83,8 @@ const Styles = ({
     chatColumn: {
         backgroundColor: '#222',
         padding: '0px',
-        height: '850px',
+        height: '650px',
         overflow: 'auto',
+
     }
 })

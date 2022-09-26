@@ -8,6 +8,7 @@ const defaultPhoto = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrej
 
 export default function Input({ info, linkInfo }) {
 
+    const [text, setText] = useState('')
 
     const userId = firebase.auth().currentUser ? firebase.auth().currentUser.uid : "administa"
     const [newMessage, setNewMessage] = useState({ text: null, image: info.photoURL ? info.photoURL : defaultPhoto, userId: userId, userName: info.displayName ? info.displayName : 'Anonymous' })
@@ -15,6 +16,7 @@ export default function Input({ info, linkInfo }) {
 
 
     const onType = (value) => {
+        setText(value)
         newMessage.text = value
         setNewMessage(newMessage)
     }
@@ -28,7 +30,7 @@ export default function Input({ info, linkInfo }) {
     return (
         <Col lg={12} style={Styles.container}>
             <Row lg={12} style={{ marginLeft: '2px' }}>
-                <Form.Control style={Styles.input} placeholder={'Type something here'} onChange={(e) => { onType(e.target.value) }} onKeyDown={(e) => { onEnter(e) }} />
+                <Form.Control style={Styles.input} value={text} placeholder={'Type something here'} onChange={(e) => { onType(e.target.value) }} onKeyDown={(e) => { onEnter(e) }} />
             </Row>
         </Col>
     )
@@ -40,6 +42,6 @@ const Styles = ({
         bottom: '0px'
     },
     input: {
-        width: '95%'
+        width: '50%'
     }
 })

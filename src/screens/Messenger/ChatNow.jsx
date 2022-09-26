@@ -20,10 +20,20 @@ export default class ChatNow extends Component {
     chatSystem.onMessage(`/chats/${this.props.info.chatKey}`, this.handleMessage)
   }
 
+  scrollToBottom = () => {
+    var $messages = $('#messages')
+    setTimeout(() => {
+      var l = $messages.text().length
+      $messages.animate({ scrollTop: 100000 }, 3);
+    }, 3000)
+  }
+
 
   handleMessage = (message) => {
     this.state.messages.push(message)
     this.setState({ messages: this.state.messages })
+    this.scrollToBottom()
+    // scroll down
   }
 
   render() {
@@ -35,7 +45,7 @@ export default class ChatNow extends Component {
             return (
               <Col lg={12} style={Styles.container}>
                 <Row lg={12} style={{ width: '100%', marginLeft: '1px', marginBottom: '15px', ...Content.rowLeftStart }}>
-                  <Image roundedCircle style={{ width: '55px', height: '37px', marginRight: '20px', marginLeft: '0px', backgroundColor: 'white' }} src={item.image} />
+                  <Image roundedCircle style={{ width: '55px', height: '37px', marginRight: '20px', marginLeft: '0px', backgroundColor: 'white' }} src={item.userId === 'administa' ? 'https://play-with-ghost.com/liebling/content/images/2021/01/admin-settings.png' : item.image} />
                   <div style={{ color: 'black', width: '70%', marginTop: '5px' }} > {item.text} </div>
                 </Row>
               </Col>

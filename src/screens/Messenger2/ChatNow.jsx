@@ -13,7 +13,8 @@ export default class ChatNow extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      messages: []
+      messages: [],
+      uid : firebase.auth().currentUser.uid
     }
   }
 
@@ -25,12 +26,12 @@ export default class ChatNow extends Component {
     var $messages = $('#messages')
     setTimeout(() => {
       var l = $messages.text().length
-      $messages.animate({ scrollTop: l }, 300);
-    }, 3000)
+      $messages.animate({ scrollTop: 100000 }, 3);
+    }, 3)
   }
 
   handleMessage = (message) => {
-    //  console.log(`message : ${JSON.stringify(messages)}`)
+    console.log(`message : ${JSON.stringify(message)}`)
     this.state.messages.push(message)
     this.setState({ messages: this.state.messages })
     // scroll down
@@ -39,12 +40,12 @@ export default class ChatNow extends Component {
 
   render() {
     return (
-      <Col lg={12} id={'messages'} style={{ overflow: 'auto' }}>
+      <Col lg={12} style={{ height: '100px' }} >
         {this.state.messages.length > 0 && this.state.messages.map((item) => {
           return (
             <Col lg={12} style={Styles.container}>
               <Row lg={12} style={{ width: '100%' }}>
-                <Image roundedCircle style={{ width: '47px', height: '40px', marginRight: '20px', marginLeft: '15px', backgroundColor: 'white' }} src={item.image} />
+                <Image roundedCircle style={{ width: '45px', height: '45px', marginRight: '20px', marginLeft: '15px', backgroundColor: 'white' }} src={item.userId === 'administa' ? 'https://play-with-ghost.com/liebling/content/images/2021/01/admin-settings.png' : item.image} />
                 <div style={{ color: 'white', width: '80%', marginTop: '5px' }} > {item.text} </div>
               </Row>
             </Col>
@@ -62,6 +63,7 @@ const Styles = ({
     ...Content.colTopSpaceBetween,
     padding: '0px',
     height: 'auto',
+    marginBottom:'15px'
   },
   empty: {
     padding: '0px'
