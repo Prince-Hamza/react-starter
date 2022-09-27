@@ -55,7 +55,14 @@ export default function InfoForm() {
     return (
         <FormContext.Provider value={{ formData: formData, setFormData: setFormData }}>
             <br />
+
+            <Col lg={12} xs={12} style={Content.colCentrify}>
+                <h4> What brings you to seek support </h4>
+            </Col>
+
+
             <Col lg={12} style={Content.colCentrify}>
+
                 <Col lg={5} style={Styles.form}>
                     <div style={Styles.percentWrap} >
                         <div style={{ ...Styles.filling, width: formData.percentage + '%' }} >

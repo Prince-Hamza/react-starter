@@ -1,8 +1,11 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 import { Content } from '../../styles/styles'
+import { useNavigate } from 'react-router-dom'
 
 export default function AppFace() {
+  const navigate = useNavigate()
+
   return (
     <Row style={Styles.background} lg={12} xs={12}>
 
@@ -20,7 +23,7 @@ export default function AppFace() {
         <br />
 
         <Row lg={12} xs={12} style={Content.rowCentrify} >
-          <button style={Styles.Button}>
+          <button style={Styles.Button} onClick={() => { navigate('/contact') }} >
             BOOK FREE DISCUSSION
           </button>
         </Row>

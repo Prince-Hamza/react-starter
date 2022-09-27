@@ -2,11 +2,16 @@ import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 import { Content } from '../../styles/styles'
 import Button from '../../components/Button'
+import { useNavigate } from 'react-router-dom'
 
 export default function How() {
+
+    const navigate = useNavigate()
+
     return (
         <Row lg={12} style={{ ...Styles.background, ...Content.rowCentrify }}>
             <div style={Styles.cover} >
+
                 <h1> How It Works</h1>
 
                 <Col lg={6} style={Styles.text}>
@@ -26,7 +31,7 @@ export default function How() {
                     <br />
 
                     <div style={{ width: '100%', ...Content.colCentrify }}>
-                        <Button style={{ font: '16px poppins' }} > Tell us how you're feeling </Button>
+                        <Button style={{ font: '16px poppins' }} onClick={() => { navigate('/contact') }} > Tell us how you're feeling </Button>
                     </div>
                 </Col>
 
@@ -56,3 +61,5 @@ const Styles = ({
         ...Content.colTopLeft
     }
 })
+
+

@@ -2,8 +2,11 @@ import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 import girl from '../../images/Online-therapy.jpg'
+import { useNavigate } from 'react-router-dom'
 
 export default function Explain() {
+    const navigate = useNavigate()
+
     return (
         <Row lg={12} style={Styles.background}>
 
@@ -30,7 +33,7 @@ export default function Explain() {
                     Feel comfortable with your first session before any obligations to join. Membership starts at $29 per month which is significantly cheaper than Therapy sessions.
                 </p>
 
-                <button style={Styles.Button}>
+                <button style={Styles.Button} onClick={() => { navigate('/contact') }}>
                     BOOK FREE DISCUSSION
                 </button>
             </Col>

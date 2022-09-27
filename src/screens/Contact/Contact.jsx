@@ -2,8 +2,11 @@ import React from 'react'
 import { Row, Col, Image, Button } from 'react-bootstrap'
 import { Content } from '../../styles/styles'
 import Nature from '../../images/nature.webp'
+import { useNavigate } from 'react-router-dom'
 
 export default function Contact() {
+    const navigate = useNavigate()
+
     return (
         <Row lg={12} style={{ ...Content.rowCentrify, padding: '20px', marginBottom: '150px' }} >
 
@@ -41,7 +44,7 @@ export default function Contact() {
                     <div> Crisis Text Line: Text Home to 741-741 </div>
                     <div> Emergency – 911</div>
                     <br />
-                    <Button style={Styles.Button}> Join Now </Button>
+                    <Button style={Styles.Button} onClick={() => { navigate('/contact') }} > Join Now </Button>
 
                 </Col>
             </Col>

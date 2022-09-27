@@ -9,10 +9,11 @@ import Footer from '../Footer/Footer'
 import pro1 from '../../images/professionals/pro1.jpg'
 import pro2 from '../../images/professionals/pro2.jpg'
 import pro3 from '../../images/professionals/pro3.jpg'
-
+import { useNavigate } from 'react-router-dom'
 const photos = [pro1, pro2, pro3]
 
 export default function Professionals() {
+    const navigate = useNavigate()
 
     const [info] = useState([{ photo: photos[0], name: 'Reinholds', para: 'Has been trained as a Life Coach that specialise in healing from separation and divorce' }, { photo: photos[1], name: 'Suha', para: 'Is a licenced therapist and can help you with solution focussed grief therapy, CBT therapy and healing fractured self' }, { photo: photos[2], name: 'Willow', para: 'Has a Masters in Psychology and is mental wellness coach that helps you build towards your next chapter' }])
 
@@ -25,15 +26,15 @@ export default function Professionals() {
             <br />
 
             <Row lg={12} style={Content.rowCentrify}>
-                {info.map((pro) => {
+                {info.map((pro, index) => {
                     return (
                         <Col key={Math.random()} lg={2} style={{ ...Content.colCentrify, textAlign: 'center' }}>
                             <Image roundedCircle src={pro.photo} />
                             <br />
                             <h5 style={{ color: 'white' }}> {pro.name} </h5>
-                            <p style={{ color: 'white' }} > {pro.para} </p>
-                            <br />
-                            <Button style={Styles.Button}> BOOK ONE ON ONE SESSION </Button>
+                            <p style={{ color: 'white', marginBottom: index === 0 ? '35px' : '15px' }} > {pro.para} </p>
+
+                            <Button style={Styles.Button} onClick={() => { navigate('/contact') }} > BOOK ONE ON ONE SESSION </Button>
                         </Col>
                     )
                 })}

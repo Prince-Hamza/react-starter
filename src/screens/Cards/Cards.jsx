@@ -5,8 +5,10 @@ import { Content } from '../../styles/styles'
 import cardImage1 from '../../images/cards/ci1.jpg'
 import cardImage2 from '../../images/cards/ci2.jpg'
 import cardImage3 from '../../images/cards/ci3.jpg'
+import { useNavigate } from 'react-router-dom'
 
 function BasicExample() {
+    const navigate = useNavigate()
     const info = [
         {
             image: cardImage1,
@@ -42,7 +44,7 @@ function BasicExample() {
                                     <Card.Text>
                                         {item.description}
                                     </Card.Text>
-                                    <p style={Styles.join}> JOIN </p>
+                                    <p style={Styles.join} onClick={() => { navigate('/contact') }} > JOIN </p>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -58,6 +60,7 @@ export default BasicExample;
 const Styles = ({
     join: {
         color: '#9151FF',
-        font: '16px poppins'
+        font: '16px poppins',
+        cursor: 'pointer'
     }
 })

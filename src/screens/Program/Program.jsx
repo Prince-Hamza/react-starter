@@ -3,7 +3,11 @@ import { Col, Row, Image } from 'react-bootstrap'
 import { Content } from '../../styles/styles'
 import Button from '../../components/Button'
 import program from '../../images/program.png'
+import { useNavigate } from 'react-router-dom'
+
 export default function Program() {
+    const navigate = useNavigate()
+
     return (
         <Row lg={12} style={Content.rowCentrify}>
             <Col lg={3} style={Content.colCenterLeft}>
@@ -14,7 +18,7 @@ export default function Program() {
                 <p> 1.  Attend a structured program to heal from separation, divorce and toxic relationships</p>
                 <p> 2.  Attend a structured program to heal from separation, divorce and toxic relationships</p>
                 <p> 3.  Attend a structured program to heal from separation, divorce and toxic relationships</p>
-                <Button style={{ marginBottom: '15px' }}> Sign up for more info </Button>
+                <Button style={{ marginBottom: '15px' }} onClick={() => { navigate('/getsupport') }} > Sign up for more info </Button>
             </Col>
         </Row>
     )

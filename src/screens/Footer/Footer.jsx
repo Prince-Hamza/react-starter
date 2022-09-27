@@ -9,6 +9,11 @@ import { FaLinkedinIn } from 'react-icons/fa'
 
 export default function Footer() {
     const navigate = useNavigate()
+
+    const goto = (url) => {
+        window.location.replace(url)
+    }
+
     return (
         <Row lg={12} style={Content.rowCentrify} >
             <Row lg={12} style={Content.rowCentrify} >
@@ -37,12 +42,12 @@ export default function Footer() {
                     <br />
                 </Col>
 
-                <Col lg={2} style={{ ...Content.colCentrify, border: 'dashed' }} >
+                <Col lg={2} style={{ ...Content.colCentrify }} >
                     <div style={Styles.heading} > Social Media </div>
                     <Row>
-                        <FaFacebookF style={Styles.icon} />
-                        <BsInstagram style={Styles.icon} />
-                        <FaLinkedinIn style={Styles.icon} />
+                        <FaFacebookF style={Styles.icon} onClick={() => { goto('https://www.linkedin.com/company/chapterup/') }} />
+                        <BsInstagram style={Styles.icon} onClick={() => { goto('https://www.instagram.com/accounts/login/?next=%2Fchapter_up%2F') }} />
+                        <FaLinkedinIn style={Styles.icon} onClick={() => { goto('https://web.facebook.com/NextChapterUp?_rdc=1&_rdr') }} />
                     </Row>
                 </Col>
 
@@ -59,11 +64,10 @@ const Styles = ({
         font: 'bold 1.4rem poppins',
         textTransform: 'uppercase',
         letterSpacing: '1.4px',
-        marginBottom:'10px'
+        marginBottom: '10px'
     },
     icon: {
         width: '50px',
-
-
+        cursor: 'pointer'
     }
 })

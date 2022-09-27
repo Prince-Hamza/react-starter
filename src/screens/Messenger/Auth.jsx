@@ -64,9 +64,10 @@ export default function Auth({ userInfo, setUserInfo, setChatLinkInfo }) {
       <br />
       <GoogleAuthButton icon={emailIcon} onClick={(e) => { continueWithEmail() }} > Continue via Email </GoogleAuthButton>
       <br />
-      <div> --------- OR --------- </div>
+      {/* <div> --------- OR --------- </div>
       <br />
       <GoogleAuthButton icon={googleIcon} onClick={(e) => { auth.googleLogin() }}> Continue via Google </GoogleAuthButton>
+       */}
       <ToastContainer />
     </Col>
   )
