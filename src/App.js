@@ -21,9 +21,11 @@ import Appointments from './screens/Admin/Appointments'
 import Security from './screens/Admin/Security'
 import Submissions from './screens/Admin/Submissions'
 import Messenger2 from './screens/Messenger2/Messenger'
+import NetEvents from './screens/NoInternet/NoInternet'
 import './App.css'
 
 function App() {
+
   const [appData, setAppData] = useState({ userInfo: {}, groups: [], selectedGroup: {} })
 
   if (!firebase.apps.length) firebase.initializeApp(firebaseConfig)
@@ -32,30 +34,33 @@ function App() {
   const userInfo1 = ({ displayName: 'admin', photoURL: '', uid: '' })
 
   return (
-    <AppContext.Provider value={{ appData: appData, setAppData: setAppData }} >
-      <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element={<Main />} />
-          <Route exact path="/stripe" element={<Stripes />} />
-          <Route exact path="/subscription" element={<StripeSubscribe />} />
-          <Route exact path="/professionals" element={<MeetProfessionals />} />
-          <Route exact path="/messenger" element={<Messenger userInfo1={userInfo1} />} />
-          <Route exact path="/community" element={<Community />} />
-          <Route exact path="/create" element={<Create />} />
-          <Route exact path="/community/:id" element={<Timelines />} />
-          <Route exact path="/aboutus" element={<AboutUs />} />
-          <Route exact path="/getsupport" element={<GetSupport />} />
-          <Route exact path="/contact" element={<SignUp />} />
-          <Route exact path="/admin" element={<Admin />} />
-          <Route exact path="/admin/appointments" element={<Appointments />} />
-          <Route exact path="/admin/security" element={<Security />} />
-          <Route exact path="/admin/submissions" element={<Submissions />} />
-          <Route exact path="/adminChat" element={<Messenger2 userInfo1={userInfo1} />} />
-        </Routes>
-      </BrowserRouter>
+    <AppContext.Provider value={{ appData: appData, setAppData: setAppData }}>
+      <NetEvents>
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/" element={<Main />} />
+            <Route exact path="/stripe" element={<Stripes />} />
+            <Route exact path="/subscription" element={<StripeSubscribe />} />
+            <Route exact path="/professionals" element={<MeetProfessionals />} />
+            <Route exact path="/messenger" element={<Messenger userInfo1={userInfo1} />} />
+            <Route exact path="/community" element={<Community />} />
+            <Route exact path="/create" element={<Create />} />
+            <Route exact path="/community/:id" element={<Timelines />} />
+            <Route exact path="/aboutus" element={<AboutUs />} />
+            <Route exact path="/getsupport" element={<GetSupport />} />
+            <Route exact path="/contact" element={<SignUp />} />
+            <Route exact path="/admin" element={<Admin />} />
+            <Route exact path="/admin/appointments" element={<Appointments />} />
+            <Route exact path="/admin/security" element={<Security />} />
+            <Route exact path="/admin/submissions" element={<Submissions />} />
+            <Route exact path="/adminChat" element={<Messenger2 userInfo1={userInfo1} />} />
+          </Routes>
+        </BrowserRouter>
+      </NetEvents>
     </AppContext.Provider>
   )
 }
+
 
 export default App;
 
