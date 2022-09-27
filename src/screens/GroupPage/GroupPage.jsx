@@ -7,7 +7,7 @@ import { useState } from 'react'
 import $ from 'jquery'
 
 export default function GroupPage() {
-    
+
     const [contentHeight, setContentHeight] = useState([])
 
     useEffect(() => {
@@ -18,14 +18,13 @@ export default function GroupPage() {
         //     })
         // })
         //let body = document.getElementsByTagName('body')[0]
-        
+
         $("body").css({ overflow: 'hidden' })
 
     }, [])
 
     return (
         <Col lg={12}>
-            <NavBar />
             <iframe title="booking" width={window.screen.width} height={window.screen.height} src={"http://www.chapterup.com/group/"} allowFullScreen frameBorder="0"></iframe>
             {/* <Footer /> */}
         </Col>

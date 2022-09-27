@@ -26,10 +26,10 @@ export default function Footer() {
                 <Col lg={3} >
                     <div style={Styles.heading} > Pages </div>
                     <br />
-                    <h6> Group </h6>
+                    <h6 onClick={() => {navigate('/group') }} > Group </h6>
                     <h6> About Us </h6>
-                    <h6> Booking </h6>
-                    <h6> Contact Us </h6>
+                    <h6 onClick={() => { navigate('/getsupport') }} > Booking </h6>
+                    <h6 onClick={() => { navigate('/contact') }} > Contact Us </h6>
                     <br />
                 </Col>
 

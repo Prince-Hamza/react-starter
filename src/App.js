@@ -22,6 +22,7 @@ import Security from './screens/Admin/Security'
 import Submissions from './screens/Admin/Submissions'
 import Messenger2 from './screens/Messenger2/Messenger'
 import NetEvents from './screens/NoInternet/NoInternet'
+import GroupPage from './screens/GroupPage/GroupPage'
 import './App.css'
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
             <Route exact path="/aboutus" element={<AboutUs />} />
             <Route exact path="/getsupport" element={<GetSupport />} />
             <Route exact path="/contact" element={<SignUp />} />
+            <Route exact path="/group" element={<GroupPage />} />
             <Route exact path="/admin" element={<Admin />} />
             <Route exact path="/admin/appointments" element={<Appointments />} />
             <Route exact path="/admin/security" element={<Security />} />
