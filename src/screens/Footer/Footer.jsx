@@ -15,9 +15,8 @@ export default function Footer() {
     }
 
     return (
-        <Row lg={12} style={Content.rowCentrify} >
-            <Row lg={12} style={Content.rowCentrify} >
-
+        <Row lg={12} style={Content.rowCentrify}>
+            <Row lg={12} style={{ ...Content.rowLeftStart, marginTop: '50px' }}>
                 <Col lg={3} style={{ ...Content.colCentrify, marginBottom: '25px' }} >
                     <Image style={{ width: '220px', height: '114px' }} src={chapterUp} />
                 </Col>
@@ -26,19 +25,19 @@ export default function Footer() {
                 <Col lg={3} >
                     <div style={Styles.heading} > Pages </div>
                     <br />
-                    <h6 onClick={() => {navigate('/group') }} > Group </h6>
-                    <h6> About Us </h6>
-                    <h6 onClick={() => { navigate('/getsupport') }} > Booking </h6>
-                    <h6 onClick={() => { navigate('/contact') }} > Contact Us </h6>
+                    <h6 style={Styles.label} onClick={() => { navigate('/group') }} > Group </h6>
+                    <h6 style={Styles.label} onClick={() => { navigate('/aboutus') }} > About Us </h6>
+                    <h6 style={Styles.label} onClick={() => { navigate('/getsupport') }} > Booking </h6>
+                    <h6 style={Styles.label} onClick={() => { navigate('/contact') }} > Contact Us </h6>
                     <br />
                 </Col>
 
                 <Col lg={3} >
                     <div style={Styles.heading} > Help </div>
                     <br />
-                    <h6> Faq </h6>
-                    <h6> Terms & conditions </h6>
-                    <h6> Privacy </h6>
+                    <h6 style={Styles.label}> Faq </h6>
+                    <h6 style={Styles.label}> Terms & conditions </h6>
+                    <h6 style={Styles.label} onClick={() => { navigate('/privacy') }} > Privacy </h6>
                     <br />
                 </Col>
 
@@ -69,5 +68,9 @@ const Styles = ({
     icon: {
         width: '50px',
         cursor: 'pointer'
+    },
+    label: {
+        cursor: 'pointer',
+        marginBottom: '15px'
     }
 })
