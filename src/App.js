@@ -24,6 +24,7 @@ import Messenger2 from './screens/Messenger2/Messenger'
 import NetEvents from './screens/NoInternet/NoInternet'
 import GroupPage from './screens/GroupPage/GroupPage'
 import Privacy from './screens/Privacy/Privacy'
+import Faq from './screens/Faq/Faq'
 import './App.css'
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
             <Route exact path="/contact" element={<SignUp />} />
             <Route exact path="/group" element={<GroupPage />} />
             <Route exact path="/privacy" element={<Privacy />} />
+            <Route exact path="/faq" element={<Faq />} />
             <Route exact path="/admin" element={<Admin />} />
             <Route exact path="/admin/appointments" element={<Appointments />} />
             <Route exact path="/admin/security" element={<Security />} />

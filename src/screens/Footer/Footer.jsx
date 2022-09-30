@@ -35,9 +35,9 @@ export default function Footer() {
                 <Col lg={3} >
                     <div style={Styles.heading} > Help </div>
                     <br />
-                    <h6 style={Styles.label}> Faq </h6>
-                    <h6 style={Styles.label}> Terms & conditions </h6>
-                    <h6 style={Styles.label} onClick={() => { navigate('/privacy') }} > Privacy </h6>
+                    <h6 style={Styles.label} onClick={() => { navigate('/faq') }}> Faq </h6>
+                    <h6 style={Styles.label} onClick={() => { navigate('/terms') }}> Terms & conditions </h6>
+                    <h6 style={Styles.label} onClick={() => { navigate('/privacy') }}> Privacy </h6>
                     <br />
                 </Col>
 
