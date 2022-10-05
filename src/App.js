@@ -35,7 +35,7 @@ function App() {
   setScheme()
 
   const userInfo1 = ({ displayName: 'admin', photoURL: '', uid: '' })
-
+console.log('');
   return (
     <AppContext.Provider value={{ appData: appData, setAppData: setAppData }}>
       <NetEvents>
