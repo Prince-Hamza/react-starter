@@ -42,5 +42,4 @@ const Styles = ({
         fontSize: '1em',
         cursor: 'pointer'
     }
-
 })
